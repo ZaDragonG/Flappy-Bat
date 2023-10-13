@@ -1,7 +1,7 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include "Game.hpp"
+#include <SFML/Graphics.h>
+#include "Game.h"
 #include <vector>
 
 namespace Sonar

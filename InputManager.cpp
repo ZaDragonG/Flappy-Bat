@@ -1,6 +1,6 @@
 #pragma once
 
-#include "InputManager.hpp"
+#include "InputManager.h"
 
 namespace Sonar
 {

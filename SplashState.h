@@ -1,8 +1,8 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include "State.hpp"
-#include "Game.hpp"
+#include <SFML/Graphics.h>
+#include "State.h"
+#include "Game.h"
 
 namespace Sonar
 {

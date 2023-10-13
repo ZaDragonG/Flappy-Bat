@@ -1,5 +1,5 @@
-#include "Pipe.hpp"
-#include "DEFINITIONS.hpp"
+#include "Pipe.h"
+#include "DEFINITIONS.h"
 
 #include <iostream>
 

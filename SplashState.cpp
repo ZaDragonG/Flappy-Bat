@@ -1,9 +1,9 @@
 #pragma once
 
 #include <sstream>
-#include "SplashState.hpp"
-#include "DEFINITIONS.hpp"
-#include "MainMenuState.hpp"
+#include "SplashState.h"
+#include "DEFINITIONS.h"
+#include "MainMenuState.h"
 
 #include <iostream>
 
