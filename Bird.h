@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.h>
 
 #include "DEFINITIONS.h"
 #include "Game.h"
