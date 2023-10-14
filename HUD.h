@@ -1,26 +1,25 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Game.h"
+
 #include "DEFINITIONS.h"
+#include "Game.h"
 
 namespace Sonar
 {
-	class Flash
+	class HUD
 	{
 	public:
-		Flash(GameDataRef data);
-		~Flash();
+		HUD(GameDataRef data);
+		~HUD();
 
-		void Show(float dt);
 		void Draw();
+		void UpdateScore(int score);
 
 	private:
 		GameDataRef _data;
 
-		sf::RectangleShape _shape;
-
-		bool _flashOn;
+		sf::Text _scoreText;
 
 	};
 }

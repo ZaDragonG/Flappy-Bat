@@ -1,7 +1,7 @@
 #pragma once
 
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 #include "State.h"
 #include "Game.h"

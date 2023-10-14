@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <sstream>
 #include "DEFINITIONS.h"
 #include "GameState.h"

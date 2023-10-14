@@ -1,4 +1,4 @@
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 #include "AssetManager.h"
 
 namespace Sonar

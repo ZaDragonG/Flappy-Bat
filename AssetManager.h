@@ -1,7 +1,7 @@
 #pragma once
 
 #include <map>
-#include <SFML/Graphics.h>
+#include <SFML/Graphics.hpp>
 
 namespace Sonar
 {
