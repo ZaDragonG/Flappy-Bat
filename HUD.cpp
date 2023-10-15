@@ -2,34 +2,34 @@
 
 #include <string>
 
-namespace Sonar
+namespace FlappyBat
 {
-	HUD::HUD(GameDataRef data) : _data(data)
+	HUD::HUD(game_data_ref data) : gameData(data)
 	{
-		_scoreText.setFont(this->_data->assets.GetFont("Flappy Font")); 
+		pointText.setFont(this->gameData->resource.GetFont("Flappy Font")); 
 
-		_scoreText.setString("0");
+		pointText.setString("0");
 
-		_scoreText.setCharacterSize(128);
+		pointText.setCharacterSize(128);
 
-		_scoreText.setFillColor(sf::Color::White);
+		pointText.setFillColor(sf::Color::White);
 
-		_scoreText.setOrigin(sf::Vector2f(_scoreText.getGlobalBounds().width / 2, _scoreText.getGlobalBounds().height / 2));
+		pointText.setOrigin(sf::Vector2f(pointText.getGlobalBounds().width / 2, pointText.getGlobalBounds().height / 2));
 
-		_scoreText.setPosition(sf::Vector2f(_data->window.getSize().x / 2, _data->window.getSize().y / 5));
+		pointText.setPosition(sf::Vector2f(gameData->window.getSize().x / 2, gameData->window.getSize().y / 5));
 	}
 
 	HUD::~HUD()
 	{
 	}
 
-	void HUD::Draw()
+	void HUD::Render()
 	{
-		_data->window.draw(_scoreText);
+		gameData->window.draw(pointText);
 	}
 
-	void HUD::UpdateScore(int score)
+	void HUD::RefreshScore(int score)
 	{
-		_scoreText.setString(std::to_string(score));
+		pointText.setString(std::to_string(score));
 	}
 }

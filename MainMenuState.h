@@ -4,24 +4,24 @@
 #include "State.h"
 #include "Game.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	class MainMenuState : public State
 	{
 	public:
-		MainMenuState(GameDataRef data);
+		MainMenuState(game_data_ref data);
 
 		void Init();
 
-		void HandleInput();
-		void Update(float dt);
-		void Draw(float dt);
+		void input_handle();
+		void Refresh(float dt);
+		void Render(float dt);
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		sf::Sprite _background;
-		sf::Sprite _title;
-		sf::Sprite _playButton;
+		sf::Sprite landscape;
+		sf::Sprite name;
+		sf::Sprite play_switch;
 	};
 }

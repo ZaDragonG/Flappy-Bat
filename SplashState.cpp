@@ -7,48 +7,48 @@
 
 #include <iostream>
 
-namespace Sonar
+namespace FlappyBat
 {
-	SplashState::SplashState(GameDataRef data) : _data(data)
+	SplashState::SplashState(game_data_ref data) : gameData(data)
 	{
 
 	}
 
 	void SplashState::Init()
 	{
-		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
+		this->gameData->resource.LoadTexture("Splash State Background", SPLASH_BACKGROUND);
 
-		_background.setTexture(this->_data->assets.GetTexture("Splash State Background"));
+		landscape.setTexture(this->gameData->resource.GetTexture("Splash State Background"));
 	}
 
-	void SplashState::HandleInput()
+	void SplashState::input_handle()
 	{
 		sf::Event event;
 
-		while (this->_data->window.pollEvent(event))
+		while (this->gameData->window.pollEvent(event))
 		{
 			if (sf::Event::Closed == event.type)
 			{
-				this->_data->window.close();
+				this->gameData->window.close();
 			}
 		}
 	}
 
-	void SplashState::Update(float dt)
+	void SplashState::Refresh(float dt)
 	{
-		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
+		if (this->_time.getElapsedTime().asSeconds() > SPLASH_TIME)
 		{
-			// Switch To Main Menu
-			this->_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
+			// button To Main Menu
+			this->gameData->unit.add_state(StateRef(new MainMenuState(gameData)), true);
 		}
 	}
 
-	void SplashState::Draw(float dt)
+	void SplashState::Render(float dt)
 	{
-		this->_data->window.clear(sf::Color::Red);
+		this->gameData->window.clear(sf::Color::Red);
 
-		this->_data->window.draw( this->_background );
+		this->gameData->window.draw( this->landscape );
 
-		this->_data->window.display();
+		this->gameData->window.display();
 	}
 }

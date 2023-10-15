@@ -4,24 +4,24 @@
 #include "State.h"
 #include "Game.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	class SplashState : public State
 	{
 	public:
-		SplashState(GameDataRef data);
+		SplashState(game_data_ref data);
 
 		void Init();
 
-		void HandleInput();
-		void Update(float dt);
-		void Draw(float dt);
+		void input_handle();
+		void Refresh(float dt);
+		void Render(float dt);
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		sf::Clock _clock;
+		sf::Clock _time;
 
-		sf::Sprite _background;
+		sf::Sprite landscape;
 	};
 }

@@ -4,23 +4,23 @@
 #include "Game.h"
 #include "DEFINITIONS.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	class Flash
 	{
 	public:
-		Flash(GameDataRef data);
+		Flash(game_data_ref data);
 		~Flash();
 
-		void Show(float dt);
-		void Draw();
+		void Display(float dt);
+		void Render();
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		sf::RectangleShape _shape;
+		sf::RectangleShape structure;
 
-		bool _flashOn;
+		bool flash_on;
 
 	};
 }

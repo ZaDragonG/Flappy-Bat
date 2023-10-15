@@ -4,31 +4,31 @@
 #include "Game.h"
 #include <vector>
 
-namespace Sonar
+namespace FlappyBat
 {
 	class Pipe
 	{
 	public:
-		Pipe(GameDataRef data);
+		Pipe(game_data_ref data);
 
-		void SpawnBottomPipe();
-		void SpawnTopPipe();
-		void SpawnInvisiblePipe();
-		void SpawnScoringPipe();
-		void MovePipes(float dt);
-		void DrawPipes();
-		void RandomisePipeOffset();
+		void bot_pipe();
+		void top_pipe();
+		void imaginary_pipe();
+		void pipe_scoring();
+		void pipe_movement(float dt);
+		void RenderPipes();
+		void random_pipe_spawn();
 
 		const std::vector<sf::Sprite> &GetSprites() const;
 		std::vector<sf::Sprite> &GetScoringSprites();
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 		std::vector<sf::Sprite> pipeSprites;
 		std::vector<sf::Sprite> scoringPipes;
 
-		int _landHeight;
-		int _pipeSpawnYOffset;
+		int ground_vert;
+		int pipe_spawn_yaxis;
 
 	};
 }

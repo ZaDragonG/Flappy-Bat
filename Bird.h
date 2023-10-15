@@ -7,39 +7,39 @@
 
 #include <vector>
 
-namespace Sonar
+namespace FlappyBat
 {
-	class Bird
+	class Bat
 	{
 	public:
-		Bird(GameDataRef data);
-		~Bird();
+		Bat(game_data_ref data);
+		~Bat();
 
-		void Draw();
+		void Render();
 
-		void Animate(float dt);
+		void Animation(float dt);
 
-		void Update(float dt);
+		void Refresh(float dt);
 
-		void Tap();
+		void BatJump();
 
 		const sf::Sprite &GetSprite() const;
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		sf::Sprite _birdSprite;
-		std::vector<sf::Texture> _animationFrames;
+		sf::Sprite bat_sprite;
+		std::vector<sf::Texture> anime_frame;
 
-		unsigned int _animationIterator;
+		unsigned int animation_change;
 
-		sf::Clock _clock;
+		sf::Clock _time;
 
-		sf::Clock _movementClock;
+		sf::Clock movement_clock;
 
-		int _birdState;
+		int bat_state;
 
-		float _rotation;
+		float bat_rotate;
 
 	};
 }

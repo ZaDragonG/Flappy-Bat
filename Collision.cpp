@@ -1,6 +1,6 @@
 #include "Collision.h"
 #include <iostream>
-namespace Sonar
+namespace FlappyBat
 {
 	Collision::Collision()
 	{
@@ -10,10 +10,10 @@ namespace Sonar
 	{
 	}
 
-	bool Collision::CheckSpriteCollision(sf::Sprite sprite1, sf::Sprite sprite2)
+	bool Collision::check_collision(sf::Sprite sprite_1, sf::Sprite sprite_2)
 	{
-		sf::Rect<float> rect1 = sprite1.getGlobalBounds();
-		sf::Rect<float> rect2 = sprite2.getGlobalBounds();
+		sf::Rect<float> rect1 = sprite_1.getGlobalBounds();
+		sf::Rect<float> rect2 = sprite_2.getGlobalBounds();
 
 		if (rect1.intersects(rect2))
 		{
@@ -25,13 +25,13 @@ namespace Sonar
 		}
 	}
 
-	bool Collision::CheckSpriteCollision(sf::Sprite sprite1, float scale1, sf::Sprite sprite2, float scale2)
+	bool Collision::check_collision(sf::Sprite sprite_1, float scale_1, sf::Sprite sprite_2, float scale_2)
 	{
-		sprite1.setScale(scale1, scale1);
-		sprite2.setScale(scale2, scale2);
+		sprite_1.setScale(scale_1, scale_1);
+		sprite_2.setScale(scale_2, scale_2);
 
-		sf::Rect<float> rect1 = sprite1.getGlobalBounds();
-		sf::Rect<float> rect2 = sprite2.getGlobalBounds();
+		sf::Rect<float> rect1 = sprite_1.getGlobalBounds();
+		sf::Rect<float> rect2 = sprite_2.getGlobalBounds();
 
 		if (rect1.intersects(rect2))
 		{

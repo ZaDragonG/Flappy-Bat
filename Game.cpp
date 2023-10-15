@@ -5,50 +5,50 @@
 #include <time.h>
 
 
-namespace Sonar
+namespace FlappyBat
 {
 	Game::Game(int width, int height, std::string title)
 	{
 		srand(time(NULL));
 
-		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
-		_data->machine.AddState(StateRef(new SplashState(this->_data)));
+		gameData->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
+		gameData->unit.add_state(StateRef(new SplashState(this->gameData)));
 
-		this->Run();
+		this->Start();
 	}
 
-	void Game::Run()
+	void Game::Start()
 	{
-		float newTime, frameTime, interpolation;
+		float new_clock, time_frame, inter;
 
-		float currentTime = this->_clock.getElapsedTime().asSeconds();
-		float accumulator = 0.0f;
+		float current_clock = this->_time.getElapsedTime().asSeconds();
+		float accumulate = 0.0f;
 
-		while (this->_data->window.isOpen())
+		while (this->gameData->window.isOpen())
 		{
-			this->_data->machine.ProcessStateChanges();
+			this->gameData->unit.state_change();
 
-			newTime = this->_clock.getElapsedTime().asSeconds();
-			frameTime = newTime - currentTime;
+			new_clock = this->_time.getElapsedTime().asSeconds();
+			time_frame = new_clock - current_clock;
 
-			if (frameTime > 0.25f)
+			if (time_frame > 0.25f)
 			{
-				frameTime = 0.25f;
+				time_frame = 0.25f;
 			}
 
-			currentTime = newTime;
-			accumulator += frameTime;
+			current_clock = new_clock;
+			accumulate += time_frame;
 
-			while (accumulator >= dt)
+			while (accumulate >= dt)
 			{
-				this->_data->machine.GetActiveState()->HandleInput();
-				this->_data->machine.GetActiveState()->Update(dt);
+				this->gameData->unit.active_state()->input_handle();
+				this->gameData->unit.active_state()->Refresh(dt);
 
-				accumulator -= dt;
+				accumulate -= dt;
 			}
 
-			interpolation = accumulator / dt;
-			this->_data->machine.GetActiveState()->Draw(interpolation);
+			inter = accumulate / dt;
+			this->gameData->unit.active_state()->Render(inter);
 		}
 	}
 }

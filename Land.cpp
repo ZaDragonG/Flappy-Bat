@@ -1,48 +1,48 @@
 #include "Land.h"
 #include "DEFINITIONS.h"
 
-namespace Sonar
+namespace FlappyBat
 {
-	Land::Land(GameDataRef data) : _data(data)
+	Land::Land(game_data_ref data) : gameData(data)
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Land"));
-		sf::Sprite sprite2(this->_data->assets.GetTexture("Land"));
+		sf::Sprite sprite(this->gameData->resource.GetTexture("Land"));
+		sf::Sprite sprite_2(this->gameData->resource.GetTexture("Land"));
 
-		sprite.setPosition(0, this->_data->window.getSize().y - sprite.getLocalBounds().height);
-		sprite2.setPosition(sprite.getLocalBounds().width, this->_data->window.getSize().y - sprite2.getLocalBounds().height);
+		sprite.setPosition(0, this->gameData->window.getSize().y - sprite.getLocalBounds().height);
+		sprite_2.setPosition(sprite.getLocalBounds().width, this->gameData->window.getSize().y - sprite_2.getLocalBounds().height);
 
-		_landSprites.push_back(sprite);
-		_landSprites.push_back(sprite2);
+		ground_sprite.push_back(sprite);
+		ground_sprite.push_back(sprite_2);
 	}
 
 	void Land::MoveLand(float dt)
 	{
-		for (unsigned short int i = 0; i < _landSprites.size(); i++)
+		for (unsigned short int i = 0; i < ground_sprite.size(); i++)
 		{
-			sf::Vector2f position = _landSprites.at(i).getPosition();
-			float movement = PIPE_MOVEMENT_SPEED * dt;
+			sf::Vector2f position = ground_sprite.at(i).getPosition();
+			float move = PIPE_SPEED * dt;
 
-			_landSprites.at(i).move(-movement, 0.0f);
+			ground_sprite.at(i).move(-move, 0.0f);
 
-			if (_landSprites.at(i).getPosition().x < 0 - _landSprites.at(i).getLocalBounds().width)
+			if (ground_sprite.at(i).getPosition().x < 0 - ground_sprite.at(i).getLocalBounds().width)
 			{
-				sf::Vector2f position(_data->window.getSize().x, _landSprites.at(i).getPosition().y);
+				sf::Vector2f position(gameData->window.getSize().x, ground_sprite.at(i).getPosition().y);
 
-				_landSprites.at(i).setPosition(position);
+				ground_sprite.at(i).setPosition(position);
 			}
 		}
 	}
 
-	void Land::DrawLand()
+	void Land::RenderLand()
 	{
-		for (unsigned short int i = 0; i < _landSprites.size(); i++)
+		for (unsigned short int i = 0; i < ground_sprite.size(); i++)
 		{
-			this->_data->window.draw(_landSprites.at(i));
+			this->gameData->window.draw(ground_sprite.at(i));
 		}
 	}
 
 	const std::vector<sf::Sprite> &Land::GetSprites() const
 	{
-		return _landSprites;
+		return ground_sprite;
 	}
 }

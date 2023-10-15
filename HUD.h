@@ -5,21 +5,21 @@
 #include "DEFINITIONS.h"
 #include "Game.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	class HUD
 	{
 	public:
-		HUD(GameDataRef data);
+		HUD(game_data_ref data);
 		~HUD();
 
-		void Draw();
-		void UpdateScore(int score);
+		void Render();
+		void RefreshScore(int score);
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		sf::Text _scoreText;
+		sf::Text pointText;
 
 	};
 }

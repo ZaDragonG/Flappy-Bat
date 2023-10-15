@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace Sonar
+namespace FlappyBat
 {
 	class Collision
 	{
@@ -10,8 +10,8 @@ namespace Sonar
 		Collision();
 		~Collision();
 
-		bool CheckSpriteCollision(sf::Sprite sprite1, sf::Sprite sprite2);
-		bool CheckSpriteCollision(sf::Sprite sprite1, float scale1, sf::Sprite sprite2, float scale2);
+		bool check_collision(sf::Sprite sprite_1, sf::Sprite sprite_2);
+		bool check_collision(sf::Sprite sprite_1, float scale_1, sf::Sprite sprite_2, float scale_2);
 
 	};
 }

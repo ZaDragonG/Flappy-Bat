@@ -1,101 +1,101 @@
 #include "Bird.h"
 
-namespace Sonar
+namespace FlappyBat
 {
-	Bird::Bird(GameDataRef data) : _data(data)
+	Bat::Bat(game_data_ref data) : gameData(data)
 	{
-		_animationIterator = 0;
+		animation_change = 0;
 
-		_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 1"));
-		_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 2"));
-		_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 3"));
-		_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 4"));
+		anime_frame.push_back(this->gameData->resource.GetTexture("Bird Frame 1"));
+		anime_frame.push_back(this->gameData->resource.GetTexture("Bird Frame 2"));
+		anime_frame.push_back(this->gameData->resource.GetTexture("Bird Frame 3"));
+		anime_frame.push_back(this->gameData->resource.GetTexture("Bird Frame 4"));
 
-		_birdSprite.setTexture(_animationFrames.at(_animationIterator));
+		bat_sprite.setTexture(anime_frame.at(animation_change));
 
-		_birdSprite.setPosition((_data->window.getSize().x / 4) - (_birdSprite.getGlobalBounds().width / 2), (_data->window.getSize().y / 2) - (_birdSprite.getGlobalBounds().height / 2));
+		bat_sprite.setPosition((gameData->window.getSize().x / 4) - (bat_sprite.getGlobalBounds().width / 2), (gameData->window.getSize().y / 2) - (bat_sprite.getGlobalBounds().height / 2));
 	
-		_birdState = BIRD_STATE_STILL;
+		bat_state = BAT_STILL;
 
-		sf::Vector2f origin = sf::Vector2f(_birdSprite.getGlobalBounds().width / 2, _birdSprite.getGlobalBounds().height / 2);
+		sf::Vector2f origin = sf::Vector2f(bat_sprite.getGlobalBounds().width / 2, bat_sprite.getGlobalBounds().height / 2);
 
-		_birdSprite.setOrigin(origin);
+		bat_sprite.setOrigin(origin);
 
-		_rotation = 0;
+		bat_rotate = 0;
 	}
 
-	Bird::~Bird()
+	Bat::~Bat()
 	{
 	}
 
-	void Bird::Draw()
+	void Bat::Render()
 	{
-		_data->window.draw(_birdSprite);
+		gameData->window.draw(bat_sprite);
 	}
 
-	void Bird::Animate(float dt)
+	void Bat::Animation(float dt)
 	{
-		if (_clock.getElapsedTime().asSeconds() > BIRD_ANIMATION_DURATION / _animationFrames.size())
+		if (_time.getElapsedTime().asSeconds() > BAT_DURATION / anime_frame.size())
 		{
-			if (_animationIterator < _animationFrames.size() - 1)
+			if (animation_change < anime_frame.size() - 1)
 			{
-				_animationIterator++;
+				animation_change++;
 			}
 			else
 			{
-				_animationIterator = 0;
+				animation_change = 0;
 			}
 
-			_birdSprite.setTexture(_animationFrames.at(_animationIterator));
+			bat_sprite.setTexture(anime_frame.at(animation_change));
 
-			_clock.restart();
+			_time.restart();
 		}
 	}
 
-	void Bird::Update(float dt)
+	void Bat::Refresh(float dt)
 	{
-		if (BIRD_STATE_FALLING == _birdState)
+		if (BAT_FALLING == bat_state)
 		{
-			_birdSprite.move(0, GRAVITY * dt);
+			bat_sprite.move(0, GRAV * dt);
 
-			_rotation += ROTATION_SPEED * dt;
+			bat_rotate += ROTATE_VELOCITY * dt;
 
-			if (_rotation > 25.0f)
+			if (bat_rotate > 25.0f)
 			{
-				_rotation = 25.0f;
+				bat_rotate = 25.0f;
 			}
 
-			_birdSprite.setRotation(_rotation);
+			bat_sprite.setRotation(bat_rotate);
 		}
-		else if (BIRD_STATE_FLYING == _birdState)
+		else if (BAT_FLYING == bat_state)
 		{
-			_birdSprite.move(0, -FLYING_SPEED * dt);
+			bat_sprite.move(0, -FLIGHT_VELOCITY * dt);
 
-			_rotation -= ROTATION_SPEED * dt;
+			bat_rotate -= ROTATE_VELOCITY * dt;
 
-			if (_rotation < -25.0f)
+			if (bat_rotate < -25.0f)
 			{
-				_rotation = -25.0f;
+				bat_rotate = -25.0f;
 			}
 
-			_birdSprite.setRotation(_rotation);
+			bat_sprite.setRotation(bat_rotate);
 		}
 
-		if (_movementClock.getElapsedTime().asSeconds() > FLYING_DURATION)
+		if (movement_clock.getElapsedTime().asSeconds() > FLIGHT_TIME)
 		{
-			_movementClock.restart();
-			_birdState = BIRD_STATE_FALLING;
+			movement_clock.restart();
+			bat_state = BAT_FALLING;
 		}
 	}
 
-	void Bird::Tap()
+	void Bat::BatJump()
 	{
-		_movementClock.restart();
-		_birdState = BIRD_STATE_FLYING;
+		movement_clock.restart();
+		bat_state = BAT_FLYING;
 	}
 
-	const sf::Sprite &Bird::GetSprite() const
+	const sf::Sprite &Bat::GetSprite() const
 	{
-		return _birdSprite;
+		return bat_sprite;
 	}
 }

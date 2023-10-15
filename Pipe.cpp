@@ -3,52 +3,52 @@
 
 #include <iostream>
 
-namespace Sonar
+namespace FlappyBat
 {
-	Pipe::Pipe(GameDataRef data) : _data(data)
+	Pipe::Pipe(game_data_ref data) : gameData(data)
 	{
-		_landHeight = this->_data->assets.GetTexture("Land").getSize().y;
-		_pipeSpawnYOffset = 0;
+		ground_vert = this->gameData->resource.GetTexture("Land").getSize().y;
+		pipe_spawn_yaxis = 0;
 	}
 
-	void Pipe::SpawnBottomPipe()
+	void Pipe::bot_pipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Up"));
+		sf::Sprite sprite(this->gameData->resource.GetTexture("Pipe Up"));
 
-		sprite.setPosition(this->_data->window.getSize().x, this->_data->window.getSize().y - sprite.getLocalBounds().height - _pipeSpawnYOffset);
+		sprite.setPosition(this->gameData->window.getSize().x, this->gameData->window.getSize().y - sprite.getLocalBounds().height - pipe_spawn_yaxis);
 
 		pipeSprites.push_back(sprite);
 	}
 
-	void Pipe::SpawnTopPipe()
+	void Pipe::top_pipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->gameData->resource.GetTexture("Pipe Down"));
 
-		sprite.setPosition(this->_data->window.getSize().x, -_pipeSpawnYOffset);
+		sprite.setPosition(this->gameData->window.getSize().x, -pipe_spawn_yaxis);
 
 		pipeSprites.push_back(sprite);
 	}
 
-	void Pipe::SpawnInvisiblePipe()
+	void Pipe::imaginary_pipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->gameData->resource.GetTexture("Pipe Down"));
 
-		sprite.setPosition(this->_data->window.getSize().x, -_pipeSpawnYOffset);
+		sprite.setPosition(this->gameData->window.getSize().x, -pipe_spawn_yaxis);
 		sprite.setColor(sf::Color(0, 0, 0, 0));
 
 		pipeSprites.push_back(sprite);
 	}
 
-	void Pipe::SpawnScoringPipe()
+	void Pipe::pipe_scoring()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Scoring Pipe"));
+		sf::Sprite sprite(this->gameData->resource.GetTexture("Scoring Pipe"));
 
-		sprite.setPosition(this->_data->window.getSize().x, 0);
+		sprite.setPosition(this->gameData->window.getSize().x, 0);
 
 		scoringPipes.push_back(sprite);
 	}
 
-	void Pipe::MovePipes(float dt)
+	void Pipe::pipe_movement(float dt)
 	{
 		for ( int i = 0; i < pipeSprites.size(); i++)
 		{
@@ -59,9 +59,9 @@ namespace Sonar
 			else
 			{
 				sf::Vector2f position = pipeSprites.at(i).getPosition();
-				float movement = PIPE_MOVEMENT_SPEED * dt;
+				float move = PIPE_SPEED * dt;
 
-				pipeSprites.at(i).move(-movement, 0);
+				pipeSprites.at(i).move(-move, 0);
 			}
 		}
 
@@ -74,24 +74,24 @@ namespace Sonar
 			else
 			{
 				sf::Vector2f position = scoringPipes.at(i).getPosition();
-				float movement = PIPE_MOVEMENT_SPEED * dt;
+				float move = PIPE_SPEED * dt;
 
-				scoringPipes.at(i).move(-movement, 0);
+				scoringPipes.at(i).move(-move, 0);
 			}
 		}
 	}
 
-	void Pipe::DrawPipes()
+	void Pipe::RenderPipes()
 	{
 		for (unsigned short int i = 0; i < pipeSprites.size(); i++)
 		{
-			this->_data->window.draw(pipeSprites.at(i));
+			this->gameData->window.draw(pipeSprites.at(i));
 		}
 	}
 
-	void Pipe::RandomisePipeOffset()
+	void Pipe::random_pipe_spawn()
 	{
-		_pipeSpawnYOffset = rand() % (_landHeight + 1);
+		pipe_spawn_yaxis = rand() % (ground_vert + 1);
 	}
 
 	const std::vector<sf::Sprite> &Pipe::GetSprites() const

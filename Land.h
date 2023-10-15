@@ -4,22 +4,22 @@
 #include "Game.h"
 #include <vector>
 
-namespace Sonar
+namespace FlappyBat
 {
 	class Land
 	{
 	public:
-		Land(GameDataRef data);
+		Land(game_data_ref data);
 
 		void MoveLand(float dt);
-		void DrawLand();
+		void RenderLand();
 
 		const std::vector<sf::Sprite> &GetSprites() const;
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		std::vector<sf::Sprite>_landSprites;
+		std::vector<sf::Sprite>ground_sprite;
 
 	};
 }

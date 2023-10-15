@@ -2,13 +2,13 @@
 
 #include "InputManager.h"
 
-namespace Sonar
+namespace FlappyBat
 {
-	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow &window)
+	bool InputManager::IsSpriteClicked(sf::Sprite thing, sf::Mouse::Button button, sf::RenderWindow &window)
 	{
 		if (sf::Mouse::isButtonPressed(button))
 		{
-			sf::IntRect playButtonRect(object.getPosition().x, object.getPosition().y, object.getGlobalBounds().width, object.getGlobalBounds().height);
+			sf::IntRect playButtonRect(thing.getPosition().x, thing.getPosition().y, thing.getGlobalBounds().width, thing.getGlobalBounds().height);
 
 			if (playButtonRect.contains(sf::Mouse::getPosition(window)))
 			{

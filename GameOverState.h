@@ -4,33 +4,33 @@
 #include "State.h"
 #include "Game.h"
 
-namespace Sonar
+namespace FlappyBat
 {
     class GameOverState : public State
     {
     public:
-        GameOverState(GameDataRef data, int score);
+        GameOverState(game_data_ref data, int score);
         
         void Init();
         
-        void HandleInput();
-        void Update(float dt);
-        void Draw(float dt);
+        void input_handle();
+        void Refresh(float dt);
+        void Render(float dt);
         
     private:
-        GameDataRef _data;
+        game_data_ref gameData;
         
-        sf::Sprite _background;
+        sf::Sprite landscape;
         
         sf::Sprite _gameOverTitle;
         sf::Sprite _gameOverContainer;
         sf::Sprite _retryButton;
         sf::Sprite _medal;
         
-        sf::Text _scoreText;
+        sf::Text pointText;
         sf::Text _highScoreText;
         
-        int _score;
+        int point;
         int _highScore;
         
     };

@@ -12,27 +12,27 @@
 #include "Flash.h"
 #include "HUD.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	class GameState : public State
 	{
 	public:
-		GameState(GameDataRef data);
+		GameState(game_data_ref data);
 
 		void Init();
 
-		void HandleInput();
-		void Update(float dt);
-		void Draw(float dt);
+		void input_handle();
+		void Refresh(float dt);
+		void Render(float dt);
 
 	private:
-		GameDataRef _data;
+		game_data_ref gameData;
 
-		sf::Sprite _background;
+		sf::Sprite landscape;
 
 		Pipe *pipe;
 		Land *land;
-		Bird *bird;
+		Bat *bat;
 		Collision collision;
 		Flash *flash;
 		HUD *hud;
@@ -42,17 +42,17 @@ namespace Sonar
 		int _gameState;
 
 		sf::RectangleShape _gameOverFlash;
-		bool _flashOn;
+		bool flash_on;
 
-		int _score;
+		int point;
 
-		sf::SoundBuffer _hitSoundBuffer;
-		sf::SoundBuffer _wingSoundBuffer;
-		sf::SoundBuffer _pointSoundBuffer;
+		sf::SoundBuffer hit_buffer;
+		sf::SoundBuffer wing_buffer;
+		sf::SoundBuffer point_buffer;
 
-		sf::Sound _hitSound;
-		sf::Sound _wingSound;
-		sf::Sound _pointSound;
+		sf::Sound hit_sound;
+		sf::Sound wing_sound;
+		sf::Sound point_sound;
 
 	};
 }

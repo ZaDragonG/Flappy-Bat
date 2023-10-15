@@ -5,7 +5,7 @@
 
 #include "State.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	typedef std::unique_ptr<State> StateRef;
 
@@ -15,18 +15,18 @@ namespace Sonar
 		StateMachine() { }
 		~StateMachine() { }
 
-		void AddState(StateRef newState, bool isReplacing = true);
-		void RemoveState();
+		void add_state(StateRef new_state, bool is_replacing = true);
+		void remove_state();
 		// Run at start of each loop in Game.cpp
-		void ProcessStateChanges();
+		void state_change();
 
-		StateRef &GetActiveState();
+		StateRef &active_state();
 
 	private:
 		std::stack<StateRef> _states;
-		StateRef _newState;
+		StateRef newState;
 
-		bool _isRemoving;
-		bool _isAdding, _isReplacing;
+		bool remover;
+		bool addition, replacement;
 	};
 }

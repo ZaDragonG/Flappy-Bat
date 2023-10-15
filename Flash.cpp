@@ -1,48 +1,48 @@
 #include "Flash.h"
 
-namespace Sonar
+namespace FlappyBat
 {
-	Flash::Flash(GameDataRef data) : _data(data)
+	Flash::Flash(game_data_ref data) : gameData(data)
 	{
-		_shape = sf::RectangleShape(sf::Vector2f(_data->window.getSize().x, _data->window.getSize().y));
-		_shape.setFillColor(sf::Color(255, 255, 255, 0));
+		structure = sf::RectangleShape(sf::Vector2f(gameData->window.getSize().x, gameData->window.getSize().y));
+		structure.setFillColor(sf::Color(255, 255, 255, 0));
 
-		_flashOn = true;
+		flash_on = true;
 	}
 
 	Flash::~Flash()
 	{
 	}
 
-	void Flash::Show(float dt)
+	void Flash::Display(float dt)
 	{
-		if (_flashOn)
+		if (flash_on)
 		{
-			int alpha = (int)_shape.getFillColor().a + (FLASH_SPEED * dt);
+			int number_1 = (int)structure.getFillColor().a + (FLASH_SPEED * dt);
 
-			if (alpha >= 255.0f)
+			if (number_1 >= 255.0f)
 			{
-				alpha = 255.0f;
-				_flashOn = false;
+				number_1 = 255.0f;
+				flash_on = false;
 			}
 
-			_shape.setFillColor(sf::Color(255, 255, 255, alpha));
+			structure.setFillColor(sf::Color(255, 255, 255, number_1));
 		}
 		else
 		{
-			int alpha = (int)_shape.getFillColor().a - (FLASH_SPEED * dt);
+			int number_1 = (int)structure.getFillColor().a - (FLASH_SPEED * dt);
 
-			if (alpha <= 0.0f)
+			if (number_1 <= 0.0f)
 			{
-				alpha = 0.0f;
+				number_1 = 0.0f;
 			}
 
-			_shape.setFillColor(sf::Color(255, 255, 255, alpha));
+			structure.setFillColor(sf::Color(255, 255, 255, number_1));
 		}
 	}
 
-	void Flash::Draw()
+	void Flash::Render()
 	{
-		_data->window.draw(_shape);
+		gameData->window.draw(structure);
 	}
 }

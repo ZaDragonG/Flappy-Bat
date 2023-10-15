@@ -1,15 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include "AssetManager.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	void AssetManager::LoadTexture(std::string name, std::string fileName)
 	{
-		sf::Texture tex;
+		sf::Texture texture;
 
-		if (tex.loadFromFile(fileName))
+		if (texture.loadFromFile(fileName))
 		{
-			this->_textures[name] = tex;
+			this->_textures[name] = texture;
 		}
 	}
 
@@ -20,11 +20,11 @@ namespace Sonar
 
 	void AssetManager::LoadFont(std::string name, std::string fileName)
 	{
-		sf::Font font;
+		sf::Font type;
 
-		if (font.loadFromFile(fileName))
+		if (type.loadFromFile(fileName))
 		{
-			this->_fonts[name] = font;
+			this->_fonts[name] = type;
 		}
 	}
 

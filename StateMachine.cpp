@@ -1,55 +1,55 @@
 #include "StateMachine.h"
 
-namespace Sonar
+namespace FlappyBat
 {
-	void StateMachine::AddState(StateRef newState, bool isReplacing)
+	void StateMachine::add_state(StateRef new_state, bool is_replacing)
 	{
-		this->_isAdding = true;
-		this->_isReplacing = isReplacing;
+		this->addition = true;
+		this->replacement = is_replacing;
 
-		this->_newState = std::move(newState);
+		this->newState = std::move(new_state);
 	}
 
-	void StateMachine::RemoveState()
+	void StateMachine::remove_state()
 	{
-		this->_isRemoving = true;
+		this->remover = true;
 	}
 
-	void StateMachine::ProcessStateChanges()
+	void StateMachine::state_change()
 	{
-		if (this->_isRemoving && !this->_states.empty())
+		if (this->remover && !this->_states.empty())
 		{
 			this->_states.pop();
 
 			if (!this->_states.empty())
 			{
-				this->_states.top()->Resume();
+				this->_states.top()->resume();
 			}
 
-			this->_isRemoving = false;
+			this->remover = false;
 		}
 
-		if (this->_isAdding)
+		if (this->addition)
 		{
 			if (!this->_states.empty())
 			{
-				if (this->_isReplacing)
+				if (this->replacement)
 				{
 					this->_states.pop();
 				}
 				else
 				{
-					this->_states.top()->Pause();
+					this->_states.top()->pause();
 				}
 			}
 
-			this->_states.push(std::move(this->_newState));
+			this->_states.push(std::move(this->newState));
 			this->_states.top()->Init();
-			this->_isAdding = false;
+			this->addition = false;
 		}
 	}
 
-	StateRef &StateMachine::GetActiveState()
+	StateRef &StateMachine::active_state()
 	{
 		return this->_states.top();
 	}

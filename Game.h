@@ -7,17 +7,17 @@
 #include "AssetManager.h"
 #include "InputManager.h"
 
-namespace Sonar
+namespace FlappyBat
 {
 	struct GameData
 	{
-		StateMachine machine;
+		StateMachine unit;
 		sf::RenderWindow window;
-		AssetManager assets;
+		AssetManager resource;
 		InputManager input;
 	};
 
-	typedef std::shared_ptr<GameData> GameDataRef;
+	typedef std::shared_ptr<GameData> game_data_ref;
 
 	class Game
 	{
@@ -27,10 +27,10 @@ namespace Sonar
 	private:
 		// Updates run at 60 per second.
 		const float dt = 1.0f / 60.0f;
-		sf::Clock _clock;
+		sf::Clock _time;
 
-		GameDataRef _data = std::make_shared<GameData>();
+		game_data_ref gameData = std::make_shared<GameData>();
 
-		void Run();
+		void Start();
 	};
 }
