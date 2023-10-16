@@ -2,7 +2,7 @@
 
 #include "InputManager.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	bool InputManager::IsSpriteClicked(sf::Sprite thing, sf::Mouse::Button button, sf::RenderWindow &window)
 	{

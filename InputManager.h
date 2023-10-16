@@ -2,7 +2,7 @@
 
 #include "SFML/Graphics.hpp"
 
-namespace FlappyBat
+namespace Sonar
 {
 	class InputManager
 	{

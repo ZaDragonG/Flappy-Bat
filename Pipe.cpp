@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace FlappyBat
+namespace Sonar
 {
 	Pipe::Pipe(game_data_ref data) : gameData(data)
 	{

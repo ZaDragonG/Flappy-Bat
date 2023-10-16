@@ -4,7 +4,7 @@
 #include "State.h"
 #include "Game.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	class MainMenuState : public State
 	{

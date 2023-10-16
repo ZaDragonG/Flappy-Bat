@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-namespace FlappyBat
+namespace Sonar
 {
 	GameState::GameState(game_data_ref data) : gameData(data)
 	{
@@ -40,16 +40,16 @@ namespace FlappyBat
 		this->gameData->resource.LoadTexture("Pipe Up", UPPER_PIPE);
 		this->gameData->resource.LoadTexture("Pipe Down", BOTTOM_PIPE);
 		this->gameData->resource.LoadTexture("Land", GROUND);
-		this->gameData->resource.LoadTexture("Bat Frame 1", BAT_1);
-		this->gameData->resource.LoadTexture("Bat Frame 2", BAT_2);
-		this->gameData->resource.LoadTexture("Bat Frame 3", BAT_3);
-		this->gameData->resource.LoadTexture("Bat Frame 4", BAT_4);
+		this->gameData->resource.LoadTexture("Bird Frame 1", BAT_1);
+		this->gameData->resource.LoadTexture("Bird Frame 2", BAT_2);
+		this->gameData->resource.LoadTexture("Bird Frame 3", BAT_3);
+		this->gameData->resource.LoadTexture("Bird Frame 4", BAT_4);
 		this->gameData->resource.LoadTexture("Scoring Pipe", PIPE_SCORE);
 		this->gameData->resource.LoadFont("Flappy Font", FLAP_FONT);
 
 		pipe = new Pipe(gameData);
 		land = new Land(gameData);
-		bat = new Bat(gameData);
+		bat = new Bird(gameData);
 		flash = new Flash(gameData);
 		hud = new HUD(gameData);
 
@@ -77,7 +77,7 @@ namespace FlappyBat
 				if (GameStates::eGameOver != _gameState)
 				{
 					_gameState = GameStates::ePlaying;
-					bat->BatJump();
+					bat->BirdJump();
 
 					wing_sound.play();
 				}

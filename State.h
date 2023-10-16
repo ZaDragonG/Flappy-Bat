@@ -1,6 +1,6 @@
 #pragma once
 
-namespace FlappyBat
+namespace Sonar
 {
 	class State
 	{

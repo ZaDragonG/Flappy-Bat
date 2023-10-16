@@ -4,7 +4,7 @@
 #include "Game.h"
 #include <vector>
 
-namespace FlappyBat
+namespace Sonar
 {
 	class Pipe
 	{

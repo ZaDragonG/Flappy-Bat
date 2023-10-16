@@ -5,7 +5,7 @@
 #include <time.h>
 
 
-namespace FlappyBat
+namespace Sonar
 {
 	Game::Game(int width, int height, std::string title)
 	{

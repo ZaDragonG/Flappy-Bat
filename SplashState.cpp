@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-namespace FlappyBat
+namespace Sonar
 {
 	SplashState::SplashState(game_data_ref data) : gameData(data)
 	{
@@ -38,7 +38,7 @@ namespace FlappyBat
 	{
 		if (this->_time.getElapsedTime().asSeconds() > SPLASH_TIME)
 		{
-			// button To Main Menu
+
 			this->gameData->unit.add_state(StateRef(new MainMenuState(gameData)), true);
 		}
 	}

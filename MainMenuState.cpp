@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-namespace FlappyBat
+namespace Sonar
 {
 	MainMenuState::MainMenuState(game_data_ref data) : gameData(data)
 	{

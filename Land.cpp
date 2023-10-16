@@ -1,7 +1,7 @@
 #include "Land.h"
 #include "DEFINITIONS.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	Land::Land(game_data_ref data) : gameData(data)
 	{

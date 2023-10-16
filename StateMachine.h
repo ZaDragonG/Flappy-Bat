@@ -5,7 +5,7 @@
 
 #include "State.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	typedef std::unique_ptr<State> StateRef;
 

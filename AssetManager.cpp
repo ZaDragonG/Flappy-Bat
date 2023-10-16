@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "AssetManager.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	void AssetManager::LoadTexture(std::string name, std::string fileName)
 	{
@@ -9,13 +9,13 @@ namespace FlappyBat
 
 		if (texture.loadFromFile(fileName))
 		{
-			this->_textures[name] = texture;
+			this->textures[name] = texture;
 		}
 	}
 
 	sf::Texture &AssetManager::GetTexture(std::string name)
 	{
-		return this->_textures.at(name);
+		return this->textures.at(name);
 	}
 
 	void AssetManager::LoadFont(std::string name, std::string fileName)
@@ -24,12 +24,12 @@ namespace FlappyBat
 
 		if (type.loadFromFile(fileName))
 		{
-			this->_fonts[name] = type;
+			this->fonts[name] = type;
 		}
 	}
 
 	sf::Font &AssetManager::GetFont(std::string name)
 	{
-		return this->_fonts.at(name);
+		return this->fonts.at(name);
 	}
 }

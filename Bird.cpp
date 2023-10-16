@@ -1,8 +1,8 @@
 #include "Bird.h"
 
-namespace FlappyBat
+namespace Sonar
 {
-	Bat::Bat(game_data_ref data) : gameData(data)
+	Bird::Bird(game_data_ref data) : gameData(data)
 	{
 		animation_change = 0;
 
@@ -24,16 +24,16 @@ namespace FlappyBat
 		bat_rotate = 0;
 	}
 
-	Bat::~Bat()
+	Bird::~Bird()
 	{
 	}
 
-	void Bat::Render()
+	void Bird::Render()
 	{
 		gameData->window.draw(bat_sprite);
 	}
 
-	void Bat::Animation(float dt)
+	void Bird::Animation(float dt)
 	{
 		if (_time.getElapsedTime().asSeconds() > BAT_DURATION / anime_frame.size())
 		{
@@ -52,7 +52,7 @@ namespace FlappyBat
 		}
 	}
 
-	void Bat::Refresh(float dt)
+	void Bird::Refresh(float dt)
 	{
 		if (BAT_FALLING == bat_state)
 		{
@@ -88,13 +88,13 @@ namespace FlappyBat
 		}
 	}
 
-	void Bat::BatJump()
+	void Bird::BirdJump()
 	{
 		movement_clock.restart();
 		bat_state = BAT_FLYING;
 	}
 
-	const sf::Sprite &Bat::GetSprite() const
+	const sf::Sprite &Bird::GetSprite() const
 	{
 		return bat_sprite;
 	}

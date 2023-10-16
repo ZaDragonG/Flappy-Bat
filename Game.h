@@ -7,7 +7,7 @@
 #include "AssetManager.h"
 #include "InputManager.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	struct GameData
 	{

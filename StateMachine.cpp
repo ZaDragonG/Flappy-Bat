@@ -1,6 +1,6 @@
 #include "StateMachine.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	void StateMachine::add_state(StateRef new_state, bool is_replacing)
 	{

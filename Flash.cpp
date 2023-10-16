@@ -1,6 +1,6 @@
 #include "Flash.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	Flash::Flash(game_data_ref data) : gameData(data)
 	{

@@ -3,7 +3,7 @@
 
 int main()
 {
-	FlappyBat::Game(WIDTH, HEIGHT, "Flappy Bat");
+	Sonar::Game(WIDTH, HEIGHT, "Flappy Bird");
 
 	return EXIT_SUCCESS;
 }

@@ -5,7 +5,7 @@
 #include "DEFINITIONS.h"
 #include "Game.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	class HUD
 	{

@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace FlappyBat
+namespace Sonar
 {
 	HUD::HUD(game_data_ref data) : gameData(data)
 	{

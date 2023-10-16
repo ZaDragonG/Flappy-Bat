@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 
-namespace FlappyBat
+namespace Sonar
 {
     GameOverState::GameOverState(game_data_ref data, int score) : gameData(data), point(score)
     {

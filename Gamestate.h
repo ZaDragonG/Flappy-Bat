@@ -12,7 +12,7 @@
 #include "Flash.h"
 #include "HUD.h"
 
-namespace FlappyBat
+namespace Sonar
 {
 	class GameState : public State
 	{
@@ -32,7 +32,7 @@ namespace FlappyBat
 
 		Pipe *pipe;
 		Land *land;
-		Bat *bat;
+		Bird *bat;
 		Collision collision;
 		Flash *flash;
 		HUD *hud;

@@ -7,13 +7,13 @@
 
 #include <vector>
 
-namespace FlappyBat
+namespace Sonar
 {
-	class Bat
+	class Bird
 	{
 	public:
-		Bat(game_data_ref data);
-		~Bat();
+		Bird(game_data_ref data);
+		~Bird();
 
 		void Render();
 
@@ -21,7 +21,7 @@ namespace FlappyBat
 
 		void Refresh(float dt);
 
-		void BatJump();
+		void BirdJump();
 
 		const sf::Sprite &GetSprite() const;
 

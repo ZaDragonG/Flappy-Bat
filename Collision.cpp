@@ -1,6 +1,6 @@
 #include "Collision.h"
 #include <iostream>
-namespace FlappyBat
+namespace Sonar
 {
 	Collision::Collision()
 	{
