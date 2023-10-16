@@ -1,9 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-
 #include "DEFINITIONS.h"
 #include "Game.h"
+
+#include <SFML/Graphics.hpp>
 
 namespace FlappyBat
 {
@@ -20,6 +20,5 @@ namespace FlappyBat
 		game_data_ref gameData;
 
 		sf::Text pointText;
-
 	};
 }

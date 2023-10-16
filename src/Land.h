@@ -1,7 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include "Game.h"
+
+#include <SFML/Graphics.hpp>
+
 #include <vector>
 
 namespace FlappyBat
@@ -19,7 +21,6 @@ namespace FlappyBat
 	private:
 		game_data_ref gameData;
 
-		std::vector<sf::Sprite>ground_sprite;
-
+		std::vector<sf::Sprite> ground_sprite;
 	};
 }

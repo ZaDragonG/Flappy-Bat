@@ -6,7 +6,7 @@ namespace FlappyBat
 {
 	HUD::HUD(game_data_ref data) : gameData(data)
 	{
-		pointText.setFont(this->gameData->resource.GetFont("Flappy Font")); 
+		pointText.setFont(this->gameData->resource.GetFont("Flappy Font"));
 
 		pointText.setString("0");
 

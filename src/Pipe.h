@@ -1,7 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include "Game.h"
+
+#include <SFML/Graphics.hpp>
+
 #include <vector>
 
 namespace FlappyBat
@@ -29,6 +31,5 @@ namespace FlappyBat
 
 		int ground_vert;
 		int pipe_spawn_yaxis;
-
 	};
 }

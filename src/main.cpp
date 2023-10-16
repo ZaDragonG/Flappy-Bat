@@ -1,5 +1,5 @@
-#include "Game.h"
 #include "DEFINITIONS.h"
+#include "Game.h"
 
 int main()
 {

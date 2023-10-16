@@ -1,9 +1,9 @@
 #pragma once
 
+#include "State.h"
+
 #include <memory>
 #include <stack>
-
-#include "State.h"
 
 namespace FlappyBat
 {
@@ -12,8 +12,8 @@ namespace FlappyBat
 	class StateMachine
 	{
 	public:
-		StateMachine() { }
-		~StateMachine() { }
+		StateMachine() {}
+		~StateMachine() {}
 
 		void add_state(StateRef new_state, bool is_replacing = true);
 		void remove_state();

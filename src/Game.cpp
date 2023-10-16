@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 namespace FlappyBat
 {
 	Game::Game(int width, int height, std::string title)

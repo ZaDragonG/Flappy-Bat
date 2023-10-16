@@ -1,17 +1,16 @@
 #pragma once
 
-#include <sstream>
-#include "SplashState.h"
 #include "DEFINITIONS.h"
 #include "MainMenuState.h"
+#include "SplashState.h"
 
 #include <iostream>
+#include <sstream>
 
 namespace FlappyBat
 {
 	SplashState::SplashState(game_data_ref data) : gameData(data)
 	{
-
 	}
 
 	void SplashState::Init()
@@ -47,7 +46,7 @@ namespace FlappyBat
 	{
 		this->gameData->window.clear(sf::Color::Red);
 
-		this->gameData->window.draw( this->landscape );
+		this->gameData->window.draw(this->landscape);
 
 		this->gameData->window.display();
 	}

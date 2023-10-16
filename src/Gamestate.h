@@ -1,16 +1,15 @@
 #pragma once
 
+#include "Bat.h"
+#include "Collision.h"
+#include "Game.h"
+#include "HUD.h"
+#include "Land.h"
+#include "Pipe.h"
+#include "State.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-
-#include "State.h"
-#include "Game.h"
-#include "Pipe.h"
-#include "Land.h"
-#include "Bird.h"
-#include "Collision.h"
-
-#include "HUD.h"
 
 namespace FlappyBat
 {
@@ -49,6 +48,5 @@ namespace FlappyBat
 		sf::Sound hit_sound;
 		sf::Sound wing_sound;
 		sf::Sound point_sound;
-
 	};
 }

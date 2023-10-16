@@ -1,18 +1,16 @@
 #pragma once
 
-#include <iostream>
-#include <sstream>
 #include "DEFINITIONS.h"
 #include "GameState.h"
 #include "GameOverState.h"
 
 #include <iostream>
+#include <sstream>
 
 namespace FlappyBat
 {
 	GameState::GameState(game_data_ref data) : gameData(data)
 	{
-
 	}
 
 	void GameState::Init()
@@ -166,14 +164,13 @@ namespace FlappyBat
 
 	void GameState::Render(float dt)
 	{
-		this->gameData->window.clear( sf::Color::Red );
+		this->gameData->window.clear(sf::Color::Red);
 
 		this->gameData->window.draw(this->landscape);
 
 		pipe->RenderPipes();
 		land->RenderLand();
 		bat->Render();
-
 
 		hud->Render();
 

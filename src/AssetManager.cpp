@@ -1,5 +1,6 @@
-#include <SFML/Graphics.hpp>
 #include "AssetManager.h"
+
+#include <SFML/Graphics.hpp>
 
 namespace FlappyBat
 {

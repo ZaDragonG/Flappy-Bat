@@ -1,5 +1,7 @@
 #include "Collision.h"
+
 #include <iostream>
+
 namespace FlappyBat
 {
 	Collision::Collision()

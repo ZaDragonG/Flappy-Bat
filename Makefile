@@ -4,7 +4,7 @@ BIN=game
 CXX_FLAGS=-Wall -Wextra
 SRCS=src/main.cpp \
 	src/AssetManager.cpp \
-	src/Bird.cpp \
+	src/Bat.cpp \
 	src/Collision.cpp \
 	src/Game.cpp \
 	src/GameOverState.cpp \

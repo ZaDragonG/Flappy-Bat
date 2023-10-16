@@ -1,5 +1,5 @@
-#include "Land.h"
 #include "DEFINITIONS.h"
+#include "Land.h"
 
 namespace FlappyBat
 {

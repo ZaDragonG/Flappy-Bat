@@ -11,7 +11,7 @@ namespace FlappyBat
 		virtual void Refresh(float dt) = 0;
 		virtual void Render(float dt) = 0;
 
-		virtual void pause() { }
-		virtual void resume() { }
+		virtual void pause() {}
+		virtual void resume() {}
 	};
 }

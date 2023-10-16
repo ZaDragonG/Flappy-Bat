@@ -1,9 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-
 #include "DEFINITIONS.h"
 #include "Game.h"
+
+#include <SFML/Graphics.hpp>
 
 #include <vector>
 
@@ -40,6 +40,5 @@ namespace FlappyBat
 		int bat_state;
 
 		float bat_rotate;
-
 	};
 }

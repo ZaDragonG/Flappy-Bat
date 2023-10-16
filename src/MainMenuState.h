@@ -1,8 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include "State.h"
 #include "Game.h"
+#include "State.h"
+
+#include <SFML/Graphics.hpp>
 
 namespace FlappyBat
 {

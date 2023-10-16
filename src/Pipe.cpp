@@ -1,5 +1,5 @@
-#include "Pipe.h"
 #include "DEFINITIONS.h"
+#include "Pipe.h"
 
 #include <iostream>
 
@@ -50,11 +50,11 @@ namespace FlappyBat
 
 	void Pipe::pipe_movement(float dt)
 	{
-		for ( int i = 0; i < pipeSprites.size(); i++)
+		for (int i = 0; i < pipeSprites.size(); i++)
 		{
 			if (pipeSprites.at(i).getPosition().x < 0 - pipeSprites.at(i).getLocalBounds().width)
 			{
-				pipeSprites.erase( pipeSprites.begin( ) + i );
+				pipeSprites.erase(pipeSprites.begin() + i);
 			}
 			else
 			{

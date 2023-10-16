@@ -1,15 +1,16 @@
 #pragma once
 
-#include <map>
 #include <SFML/Graphics.hpp>
+
+#include <map>
 
 namespace FlappyBat
 {
 	class AssetManager
 	{
 	public:
-		AssetManager() { }
-		~AssetManager() { }
+		AssetManager() {}
+		~AssetManager() {}
 
 		void VisualLoad(std::string name, std::string fileName);
 		sf::Texture &GetTexture(std::string name);

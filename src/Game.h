@@ -1,11 +1,13 @@
 #pragma once
 
-#include <memory>
-#include <string>
-#include <SFML/Graphics.hpp>
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
+
+#include <SFML/Graphics.hpp>
+
+#include <memory>
+#include <string>
 
 namespace FlappyBat
 {

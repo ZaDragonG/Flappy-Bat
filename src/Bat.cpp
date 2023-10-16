@@ -1,4 +1,4 @@
-#include "Bird.h"
+#include "Bat.h"
 
 namespace FlappyBat
 {
@@ -14,7 +14,7 @@ namespace FlappyBat
 		bat_sprite.setTexture(anime_frame.at(animation_change));
 
 		bat_sprite.setPosition((gameData->window.getSize().x / 4) - (bat_sprite.getGlobalBounds().width / 2), (gameData->window.getSize().y / 2) - (bat_sprite.getGlobalBounds().height / 2));
-	
+
 		bat_state = BAT_STILL;
 
 		sf::Vector2f origin = sf::Vector2f(bat_sprite.getGlobalBounds().width / 2, bat_sprite.getGlobalBounds().height / 2);

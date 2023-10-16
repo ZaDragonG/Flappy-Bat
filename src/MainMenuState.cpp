@@ -1,17 +1,16 @@
 #pragma once
 
-#include <sstream>
 #include "DEFINITIONS.h"
-#include "MainMenuState.h"
 #include "GameState.h"
+#include "MainMenuState.h"
 
+#include <sstream>
 #include <iostream>
 
 namespace FlappyBat
 {
 	MainMenuState::MainMenuState(game_data_ref data) : gameData(data)
 	{
-
 	}
 
 	void MainMenuState::Init()
@@ -49,7 +48,6 @@ namespace FlappyBat
 
 	void MainMenuState::Refresh(float dt)
 	{
-		
 	}
 
 	void MainMenuState::Render(float dt)
