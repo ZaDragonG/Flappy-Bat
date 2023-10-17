@@ -1,6 +1,6 @@
-#include "DEFINITIONS.h"
-#include "GameOverState.h"
-#include "GameState.h"
+#include "DEFINE.h"
+#include "GameEnd.h"
+#include "GameBody.h"
 
 #include <fstream>
 #include <iostream>
@@ -49,23 +49,23 @@ namespace FlappyBat
         this->gameData->resource.VisualLoad("Gold Medal", GOLD_MED);
         this->gameData->resource.VisualLoad("Platinum Medal", PLAT_MED);
 
-        landscape.setTexture(this->gameData->resource.GetTexture("Game Over Background"));
-        _gameOverTitle.setTexture(this->gameData->resource.GetTexture("Game Over Title"));
-        _gameOverContainer.setTexture(this->gameData->resource.GetTexture("Game Over Body"));
-        _retryButton.setTexture(this->gameData->resource.GetTexture("Play Button"));
+        landscape.setTexture(this->gameData->resource.ObtainVisuals("Game Over Background"));
+        _gameOverTitle.setTexture(this->gameData->resource.ObtainVisuals("Game Over Title"));
+        _gameOverContainer.setTexture(this->gameData->resource.ObtainVisuals("Game Over Body"));
+        _retryButton.setTexture(this->gameData->resource.ObtainVisuals("Play Button"));
 
         _gameOverContainer.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_gameOverContainer.getGlobalBounds().width / 2), (gameData->window.getSize().y / 2) - (_gameOverContainer.getGlobalBounds().height / 2)));
         _gameOverTitle.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_gameOverTitle.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y - (_gameOverTitle.getGlobalBounds().height * 1.2)));
         _retryButton.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_retryButton.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y + _gameOverContainer.getGlobalBounds().height + (_retryButton.getGlobalBounds().height * 0.2)));
 
-        pointText.setFont(this->gameData->resource.GetFont("Flappy Font"));
+        pointText.setFont(this->gameData->resource.ObtainText("Flappy Font"));
         pointText.setString(std::to_string(point));
         pointText.setCharacterSize(56);
         pointText.setFillColor(sf::Color::White);
         pointText.setOrigin(sf::Vector2f(pointText.getGlobalBounds().width / 2, pointText.getGlobalBounds().height / 2));
         pointText.setPosition(sf::Vector2f(gameData->window.getSize().x / 10 * 7.25, gameData->window.getSize().y / 2.15));
 
-        _highScoreText.setFont(this->gameData->resource.GetFont("Flappy Font"));
+        _highScoreText.setFont(this->gameData->resource.ObtainText("Flappy Font"));
         _highScoreText.setString(std::to_string(_highScore));
         _highScoreText.setCharacterSize(56);
         _highScoreText.setFillColor(sf::Color::White);
@@ -74,19 +74,19 @@ namespace FlappyBat
 
         if (point >= PLATINUM_MEDAL_SCORE)
         {
-            _medal.setTexture(gameData->resource.GetTexture("Platinum Medal"));
+            _medal.setTexture(gameData->resource.ObtainVisuals("Platinum Medal"));
         }
         else if (point >= GOLD_MEDAL_SCORE)
         {
-            _medal.setTexture(gameData->resource.GetTexture("Gold Medal"));
+            _medal.setTexture(gameData->resource.ObtainVisuals("Gold Medal"));
         }
         else if (point >= SILVER_MEDAL_SCORE)
         {
-            _medal.setTexture(gameData->resource.GetTexture("Silver Medal"));
+            _medal.setTexture(gameData->resource.ObtainVisuals("Silver Medal"));
         }
         else
         {
-            _medal.setTexture(gameData->resource.GetTexture("Bronze Medal"));
+            _medal.setTexture(gameData->resource.ObtainVisuals("Bronze Medal"));
         }
 
         _medal.setPosition(175, 465);

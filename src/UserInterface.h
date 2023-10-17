@@ -1,17 +1,17 @@
 #pragma once
 
-#include "DEFINITIONS.h"
+#include "DEFINE.h"
 #include "Game.h"
 
 #include <SFML/Graphics.hpp>
 
 namespace FlappyBat
 {
-	class HUD
+	class UserInterface
 	{
 	public:
-		HUD(game_data_ref data);
-		~HUD();
+		UserInterface(game_data_ref data);
+		~UserInterface();
 
 		void Render();
 		void RefreshScore(int score);

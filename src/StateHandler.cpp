@@ -1,8 +1,8 @@
-#include "StateMachine.h"
+#include "StateHandler.h"
 
 namespace FlappyBat
 {
-	void StateMachine::add_state(StateRef new_state, bool is_replacing)
+	void StateHandler::add_state(StateRef new_state, bool is_replacing)
 	{
 		this->addition = true;
 		this->replacement = is_replacing;
@@ -10,12 +10,12 @@ namespace FlappyBat
 		this->newState = std::move(new_state);
 	}
 
-	void StateMachine::remove_state()
+	void StateHandler::remove_state()
 	{
 		this->remover = true;
 	}
 
-	void StateMachine::state_change()
+	void StateHandler::state_change()
 	{
 		if (this->remover && !this->_states.empty())
 		{
@@ -49,7 +49,7 @@ namespace FlappyBat
 		}
 	}
 
-	StateRef &StateMachine::active_state()
+	StateRef &StateHandler::active_state()
 	{
 		return this->_states.top();
 	}

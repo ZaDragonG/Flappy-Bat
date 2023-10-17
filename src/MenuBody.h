@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Game.h"
-#include "State.h"
+#include "Virtual.h"
 
 #include <SFML/Graphics.hpp>
 

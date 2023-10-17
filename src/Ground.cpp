@@ -1,12 +1,12 @@
-#include "DEFINITIONS.h"
-#include "Land.h"
+#include "DEFINE.h"
+#include "Ground.h"
 
 namespace FlappyBat
 {
 	Land::Land(game_data_ref data) : gameData(data)
 	{
-		sf::Sprite sprite(this->gameData->resource.GetTexture("Land"));
-		sf::Sprite sprite_2(this->gameData->resource.GetTexture("Land"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Land"));
+		sf::Sprite sprite_2(this->gameData->resource.ObtainVisuals("Land"));
 
 		sprite.setPosition(0, this->gameData->window.getSize().y - sprite.getLocalBounds().height);
 		sprite_2.setPosition(sprite.getLocalBounds().width, this->gameData->window.getSize().y - sprite_2.getLocalBounds().height);

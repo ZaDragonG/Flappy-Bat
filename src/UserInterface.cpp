@@ -1,12 +1,12 @@
-#include "HUD.h"
+#include "UserInterface.h"
 
 #include <string>
 
 namespace FlappyBat
 {
-	HUD::HUD(game_data_ref data) : gameData(data)
+	UserInterface::UserInterface(game_data_ref data) : gameData(data)
 	{
-		pointText.setFont(this->gameData->resource.GetFont("Flappy Font"));
+		pointText.setFont(this->gameData->resource.ObtainText("Flappy Font"));
 
 		pointText.setString("0");
 
@@ -19,16 +19,16 @@ namespace FlappyBat
 		pointText.setPosition(sf::Vector2f(gameData->window.getSize().x / 2, gameData->window.getSize().y / 5));
 	}
 
-	HUD::~HUD()
+	UserInterface::~UserInterface()
 	{
 	}
 
-	void HUD::Render()
+	void UserInterface::Render()
 	{
 		gameData->window.draw(pointText);
 	}
 
-	void HUD::RefreshScore(int score)
+	void UserInterface::RefreshScore(int score)
 	{
 		pointText.setString(std::to_string(score));
 	}

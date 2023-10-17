@@ -1,7 +1,7 @@
 #pragma once
 
-#include "DEFINITIONS.h"
-#include "MainMenuState.h"
+#include "DEFINE.h"
+#include "MenuBody.h"
 #include "SplashState.h"
 
 #include <iostream>
@@ -17,7 +17,7 @@ namespace FlappyBat
 	{
 		this->gameData->resource.VisualLoad("Splash State Background", SPLASH_BACKGROUND);
 
-		landscape.setTexture(this->gameData->resource.GetTexture("Splash State Background"));
+		landscape.setTexture(this->gameData->resource.ObtainVisuals("Splash State Background"));
 	}
 
 	void SplashState::input_handle()

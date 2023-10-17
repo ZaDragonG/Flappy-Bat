@@ -1,4 +1,4 @@
-#include "DEFINITIONS.h"
+#include "DEFINE.h"
 #include "Game.h"
 
 int main()

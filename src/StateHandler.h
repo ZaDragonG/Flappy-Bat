@@ -1,6 +1,6 @@
 #pragma once
 
-#include "State.h"
+#include "Virtual.h"
 
 #include <memory>
 #include <stack>
@@ -9,11 +9,11 @@ namespace FlappyBat
 {
 	typedef std::unique_ptr<State> StateRef;
 
-	class StateMachine
+	class StateHandler
 	{
 	public:
-		StateMachine() {}
-		~StateMachine() {}
+		StateHandler() {}
+		~StateHandler() {}
 
 		void add_state(StateRef new_state, bool is_replacing = true);
 		void remove_state();

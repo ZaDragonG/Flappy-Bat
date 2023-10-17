@@ -1,8 +1,8 @@
 #pragma once
 
-#include "StateMachine.h"
-#include "AssetManager.h"
-#include "InputManager.h"
+#include "StateHandler.h"
+#include "Assets.h"
+#include "ButtonInputs.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -13,10 +13,10 @@ namespace FlappyBat
 {
 	struct GameData
 	{
-		StateMachine unit;
+		StateHandler unit;
 		sf::RenderWindow window;
-		AssetManager resource;
-		InputManager input;
+		Assets resource;
+		ButtonInputs input;
 	};
 
 	typedef std::shared_ptr<GameData> game_data_ref;

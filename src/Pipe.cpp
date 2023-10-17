@@ -1,4 +1,4 @@
-#include "DEFINITIONS.h"
+#include "DEFINE.h"
 #include "Pipe.h"
 
 #include <iostream>
@@ -7,13 +7,13 @@ namespace FlappyBat
 {
 	Pipe::Pipe(game_data_ref data) : gameData(data)
 	{
-		ground_vert = this->gameData->resource.GetTexture("Land").getSize().y;
+		ground_vert = this->gameData->resource.ObtainVisuals("Land").getSize().y;
 		pipe_spawn_yaxis = 0;
 	}
 
 	void Pipe::bot_pipe()
 	{
-		sf::Sprite sprite(this->gameData->resource.GetTexture("Pipe Up"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Up"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, this->gameData->window.getSize().y - sprite.getLocalBounds().height - pipe_spawn_yaxis);
 
@@ -22,7 +22,7 @@ namespace FlappyBat
 
 	void Pipe::top_pipe()
 	{
-		sf::Sprite sprite(this->gameData->resource.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Down"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, -pipe_spawn_yaxis);
 
@@ -31,7 +31,7 @@ namespace FlappyBat
 
 	void Pipe::imaginary_pipe()
 	{
-		sf::Sprite sprite(this->gameData->resource.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Down"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, -pipe_spawn_yaxis);
 		sprite.setColor(sf::Color(0, 0, 0, 0));
@@ -41,7 +41,7 @@ namespace FlappyBat
 
 	void Pipe::pipe_scoring()
 	{
-		sf::Sprite sprite(this->gameData->resource.GetTexture("Scoring Pipe"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Scoring Pipe"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, 0);
 

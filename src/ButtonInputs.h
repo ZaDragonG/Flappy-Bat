@@ -4,11 +4,11 @@
 
 namespace FlappyBat
 {
-	class InputManager
+	class ButtonInputs
 	{
 	public:
-		InputManager() {}
-		~InputManager() {}
+		ButtonInputs() {}
+		~ButtonInputs() {}
 
 		bool IsSpriteClicked(sf::Sprite thing, sf::Mouse::Button button, sf::RenderWindow &window);
 

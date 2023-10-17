@@ -1,8 +1,8 @@
 #pragma once
 
-#include "DEFINITIONS.h"
-#include "GameState.h"
-#include "MainMenuState.h"
+#include "DEFINE.h"
+#include "GameBody.h"
+#include "MenuBody.h"
 
 #include <sstream>
 #include <iostream>
@@ -19,9 +19,9 @@ namespace FlappyBat
 		this->gameData->resource.VisualLoad("Game Title", TITLE);
 		this->gameData->resource.VisualLoad("Play Button", PLAY);
 
-		landscape.setTexture(this->gameData->resource.GetTexture("Main Menu Background"));
-		name.setTexture(this->gameData->resource.GetTexture("Game Title"));
-		play_switch.setTexture(this->gameData->resource.GetTexture("Play Button"));
+		landscape.setTexture(this->gameData->resource.ObtainVisuals("Main Menu Background"));
+		name.setTexture(this->gameData->resource.ObtainVisuals("Game Title"));
+		play_switch.setTexture(this->gameData->resource.ObtainVisuals("Play Button"));
 
 		name.setPosition((WIDTH / 2) - (name.getGlobalBounds().width / 2), name.getGlobalBounds().height / 2);
 		play_switch.setPosition((WIDTH / 2) - (play_switch.getGlobalBounds().width / 2), (HEIGHT / 2) - (play_switch.getGlobalBounds().height / 2));

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "DEFINITIONS.h"
-#include "GameState.h"
-#include "GameOverState.h"
+#include "DEFINE.h"
+#include "GameBody.h"
+#include "GameEnd.h"
 
 #include <iostream>
 #include <sstream>
@@ -48,9 +48,9 @@ namespace FlappyBat
 		pipe = new Pipe(gameData);
 		land = new Land(gameData);
 		bat = new Bird(gameData);
-		hud = new HUD(gameData);
+		hud = new UserInterface(gameData);
 
-		landscape.setTexture(this->gameData->resource.GetTexture("Game Background"));
+		landscape.setTexture(this->gameData->resource.ObtainVisuals("Game Background"));
 
 		point = 0;
 		hud->RefreshScore(point);

@@ -3,10 +3,10 @@
 #include "Bat.h"
 #include "Collision.h"
 #include "Game.h"
-#include "HUD.h"
-#include "Land.h"
+#include "UserInterface.h"
+#include "Ground.h"
 #include "Pipe.h"
-#include "State.h"
+#include "Virtual.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -34,7 +34,7 @@ namespace FlappyBat
 		Bird *bat;
 		Collision collision;
 
-		HUD *hud;
+		UserInterface *hud;
 
 		sf::Clock clock;
 

@@ -1,10 +1,10 @@
-#include "AssetManager.h"
+#include "Assets.h"
 
 #include <SFML/Graphics.hpp>
 
 namespace FlappyBat
 {
-	void AssetManager::VisualLoad(std::string name, std::string fileName)
+	void Assets::VisualLoad(std::string name, std::string fileName)
 	{
 		sf::Texture texture;
 
@@ -14,12 +14,12 @@ namespace FlappyBat
 		}
 	}
 
-	sf::Texture &AssetManager::GetTexture(std::string name)
+	sf::Texture &Assets::ObtainVisuals(std::string name)
 	{
 		return this->textures.at(name);
 	}
 
-	void AssetManager::LoadFont(std::string name, std::string fileName)
+	void Assets::LoadFont(std::string name, std::string fileName)
 	{
 		sf::Font type;
 
@@ -29,7 +29,7 @@ namespace FlappyBat
 		}
 	}
 
-	sf::Font &AssetManager::GetFont(std::string name)
+	sf::Font &Assets::ObtainText(std::string name)
 	{
 		return this->fonts.at(name);
 	}
