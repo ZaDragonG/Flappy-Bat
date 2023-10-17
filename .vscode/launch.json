@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Gomzi/Project-4.0",
-      "program": "c:/Users/Gomzi/Project-4.0/build/Debug/outDebug",
+      "cwd": "c:/Users/Gomzi/Project-4.0/src",
+      "program": "c:/Users/Gomzi/Project-4.0/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

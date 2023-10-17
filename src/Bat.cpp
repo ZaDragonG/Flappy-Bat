@@ -2,7 +2,7 @@
 
 namespace FlappyBat
 {
-	Bird::Bird(game_data_ref data) : gameData(data)
+	Bat::Bat(game_data_ref data) : gameData(data)
 	{
 		animation_change = 0;
 
@@ -24,16 +24,16 @@ namespace FlappyBat
 		bat_rotate = 0;
 	}
 
-	Bird::~Bird()
+	Bat::~Bat()
 	{
 	}
 
-	void Bird::Render()
+	void Bat::Render()
 	{
 		gameData->window.draw(bat_sprite);
 	}
 
-	void Bird::Animation(float dt)
+	void Bat::Animation(float dt)
 	{
 		if (_time.getElapsedTime().asSeconds() > BAT_DURATION / anime_frame.size())
 		{
@@ -52,7 +52,7 @@ namespace FlappyBat
 		}
 	}
 
-	void Bird::Refresh(float dt)
+	void Bat::Refresh(float dt)
 	{
 		if (BAT_FALLING == bat_state)
 		{
@@ -88,13 +88,13 @@ namespace FlappyBat
 		}
 	}
 
-	void Bird::BirdJump()
+	void Bat::BatJump()
 	{
 		movement_clock.restart();
 		bat_state = BAT_FLYING;
 	}
 
-	const sf::Sprite &Bird::GetSprite() const
+	const sf::Sprite &Bat::GetSprite() const
 	{
 		return bat_sprite;
 	}

@@ -31,7 +31,7 @@ namespace FlappyBat
 
 		Pipe *pipe;
 		Land *land;
-		Bird *bat;
+		Bat *bat;
 		Collision collision;
 
 		UserInterface *hud;

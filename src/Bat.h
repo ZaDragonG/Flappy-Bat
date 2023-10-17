@@ -9,11 +9,11 @@
 
 namespace FlappyBat
 {
-	class Bird
+	class Bat
 	{
 	public:
-		Bird(game_data_ref data);
-		~Bird();
+		Bat(game_data_ref data);
+		~Bat();
 
 		void Render();
 
@@ -21,7 +21,7 @@ namespace FlappyBat
 
 		void Refresh(float dt);
 
-		void BirdJump();
+		void BatJump();
 
 		const sf::Sprite &GetSprite() const;
 

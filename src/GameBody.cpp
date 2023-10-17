@@ -47,7 +47,7 @@ namespace FlappyBat
 
 		pipe = new Pipe(gameData);
 		land = new Land(gameData);
-		bat = new Bird(gameData);
+		bat = new Bat(gameData);
 		hud = new UserInterface(gameData);
 
 		landscape.setTexture(this->gameData->resource.ObtainVisuals("Game Background"));
@@ -74,7 +74,7 @@ namespace FlappyBat
 				if (GameStates::eGameOver != _gameState)
 				{
 					_gameState = GameStates::ePlaying;
-					bat->BirdJump();
+					bat->BatJump();
 
 					wing_sound.play();
 				}
