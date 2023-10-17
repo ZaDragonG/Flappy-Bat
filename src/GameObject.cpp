@@ -2,6 +2,6 @@
 
 namespace FlappyBat
 {
-    void GameObject::RenderPipes(){
+    void GameObject::RenderPipes(float dt){
     }
 }

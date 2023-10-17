@@ -10,8 +10,7 @@
 
 namespace FlappyBat
 {
-	class Pipe
-	{
+	class Pipe : public Obstacle{
 	public:
 		Pipe(game_data_ref data);
 
