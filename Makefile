@@ -15,7 +15,9 @@ SRCS=src/main.cpp \
 	src/Pipe.cpp \
 	src/BackgroundImg.cpp \
 	src/StateHandler.cpp \
-	src/UserInterface.cpp
+	src/UserInterface.cpp \
+	src/Obstacle.cpp \
+	src/GameObject.cpp
 
 LINK=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
