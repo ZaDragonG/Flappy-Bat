@@ -15,7 +15,7 @@ namespace FlappyBat
 		void VisualLoad(std::string name, std::string fileName);
 		sf::Texture &ObtainVisuals(std::string name);
 
-		void LoadFont(std::string name, std::string fileName);
+		void TextTypeLoad(std::string name, std::string fileName);
 		sf::Font &ObtainText(std::string name);
 
 	private:

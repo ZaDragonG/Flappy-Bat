@@ -7,12 +7,12 @@
 
 namespace FlappyBat
 {
-	class SplashState : public State
+	class BackgroundImg : public State
 	{
 	public:
-		SplashState(game_data_ref data);
+		BackgroundImg(game_data_ref data);
 
-		void Init();
+		void SetGameElements();
 
 		void input_handle();
 		void Refresh(float dt);

@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "SplashState.h"
+#include "BackgroundImg.h"
 
 #include <stdlib.h>
 #include <time.h>
@@ -11,7 +11,7 @@ namespace FlappyBat
 		srand(time(NULL));
 
 		gameData->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
-		gameData->unit.add_state(StateRef(new SplashState(this->gameData)));
+		gameData->unit.add_state(StateRef(new BackgroundImg(this->gameData)));
 
 		this->Start();
 	}

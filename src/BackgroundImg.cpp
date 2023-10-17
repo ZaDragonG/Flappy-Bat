@@ -2,25 +2,25 @@
 
 #include "DEFINE.h"
 #include "MenuBody.h"
-#include "SplashState.h"
+#include "BackgroundImg.h"
 
 #include <iostream>
 #include <sstream>
 
 namespace FlappyBat
 {
-	SplashState::SplashState(game_data_ref data) : gameData(data)
+	BackgroundImg::BackgroundImg(game_data_ref data) : gameData(data)
 	{
 	}
 
-	void SplashState::Init()
+	void BackgroundImg::SetGameElements()
 	{
 		this->gameData->resource.VisualLoad("Splash State Background", SPLASH_BACKGROUND);
 
 		landscape.setTexture(this->gameData->resource.ObtainVisuals("Splash State Background"));
 	}
 
-	void SplashState::input_handle()
+	void BackgroundImg::input_handle()
 	{
 		sf::Event event;
 
@@ -33,16 +33,16 @@ namespace FlappyBat
 		}
 	}
 
-	void SplashState::Refresh(float dt)
+	void BackgroundImg::Refresh(float dt)
 	{
 		if (this->_time.getElapsedTime().asSeconds() > SPLASH_TIME)
 		{
 
-			this->gameData->unit.add_state(StateRef(new MainMenuState(gameData)), true);
+			this->gameData->unit.add_state(StateRef(new MenuBody(gameData)), true);
 		}
 	}
 
-	void SplashState::Render(float dt)
+	void BackgroundImg::Render(float dt)
 	{
 		this->gameData->window.clear(sf::Color::Red);
 

@@ -13,7 +13,7 @@ SRCS=src/main.cpp \
 	src/Ground.cpp \
 	src/MenuBody.cpp \
 	src/Pipe.cpp \
-	src/SplashState.cpp \
+	src/BackgroundImg.cpp \
 	src/StateHandler.cpp \
 	src/UserInterface.cpp
 

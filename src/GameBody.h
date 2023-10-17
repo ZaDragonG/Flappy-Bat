@@ -13,12 +13,12 @@
 
 namespace FlappyBat
 {
-	class GameState : public State
+	class GameBody : public State
 	{
 	public:
-		GameState(game_data_ref data);
+		GameBody(game_data_ref data);
 
-		void Init();
+		void SetGameElements();
 
 		void input_handle();
 		void Refresh(float dt);
@@ -29,8 +29,8 @@ namespace FlappyBat
 
 		sf::Sprite landscape;
 
-		Pipe *pipe;
-		Land *land;
+		Pipe *PIPE;
+		Ground *land;
 		Bat *bat;
 		Collision collision;
 
@@ -38,7 +38,7 @@ namespace FlappyBat
 
 		sf::Clock clock;
 
-		int _gameState;
+		int _gameBody;
 		int point;
 
 		sf::SoundBuffer hit_buffer;

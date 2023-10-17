@@ -8,15 +8,15 @@
 
 namespace FlappyBat
 {
-	class Land
+	class Ground
 	{
 	public:
-		Land(game_data_ref data);
+		Ground(game_data_ref data);
 
-		void MoveLand(float dt);
-		void RenderLand();
+		void MoveGround(float dt);
+		void RenderGround();
 
-		const std::vector<sf::Sprite> &GetSprites() const;
+		const std::vector<sf::Sprite> &LoadSprites() const;
 
 	private:
 		game_data_ref gameData;

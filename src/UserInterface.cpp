@@ -6,7 +6,7 @@ namespace FlappyBat
 {
 	UserInterface::UserInterface(game_data_ref data) : gameData(data)
 	{
-		pointText.setFont(this->gameData->resource.ObtainText("Flappy Font"));
+		pointText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text"));
 
 		pointText.setString("0");
 

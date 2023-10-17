@@ -6,10 +6,10 @@ namespace FlappyBat
 	{
 		animation_change = 0;
 
-		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bird Frame 1"));
-		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bird Frame 2"));
-		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bird Frame 3"));
-		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bird Frame 4"));
+		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bat 1"));
+		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bat 2"));
+		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bat 3"));
+		anime_frame.push_back(this->gameData->resource.ObtainVisuals("Bat 4"));
 
 		bat_sprite.setTexture(anime_frame.at(animation_change));
 

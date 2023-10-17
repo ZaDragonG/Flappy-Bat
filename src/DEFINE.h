@@ -55,7 +55,7 @@
 
 #define ROTATE_VELOCITY 100.0f
 
-enum GameStates
+enum GameHandlers
 {
 	eReady,
 	ePlaying,

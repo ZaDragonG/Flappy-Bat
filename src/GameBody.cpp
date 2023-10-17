@@ -9,56 +9,42 @@
 
 namespace FlappyBat
 {
-	GameState::GameState(game_data_ref data) : gameData(data)
+	GameBody::GameBody(game_data_ref data) : gameData(data)
 	{
 	}
 
-	void GameState::Init()
+	void GameBody::SetGameElements()
 	{
-		if (!hit_buffer.loadFromFile(HIT_AUDIO))
-		{
-			std::cout << "Error Loading Hit Sound Effect" << std::endl;
-		}
-
-		if (!wing_buffer.loadFromFile(WING_AUDIO))
-		{
-			std::cout << "Error Loading Wing Sound Effect" << std::endl;
-		}
-
-		if (!point_buffer.loadFromFile(POINT_AUDIO))
-		{
-			std::cout << "Error Loading Point Sound Effect" << std::endl;
-		}
 
 		hit_sound.setBuffer(hit_buffer);
 		wing_sound.setBuffer(wing_buffer);
 		point_sound.setBuffer(point_buffer);
 
-		this->gameData->resource.VisualLoad("Game Background", BACKGROUND);
-		this->gameData->resource.VisualLoad("Pipe Up", UPPER_PIPE);
-		this->gameData->resource.VisualLoad("Pipe Down", BOTTOM_PIPE);
+		this->gameData->resource.VisualLoad("LandScape", BACKGROUND);
+		this->gameData->resource.VisualLoad("Upper Pipe", UPPER_PIPE);
+		this->gameData->resource.VisualLoad("Lower Pipe", BOTTOM_PIPE);
 		this->gameData->resource.VisualLoad("Land", GROUND);
-		this->gameData->resource.VisualLoad("Bird Frame 1", BAT_1);
-		this->gameData->resource.VisualLoad("Bird Frame 2", BAT_2);
-		this->gameData->resource.VisualLoad("Bird Frame 3", BAT_3);
-		this->gameData->resource.VisualLoad("Bird Frame 4", BAT_4);
-		this->gameData->resource.VisualLoad("Scoring Pipe", PIPE_SCORE);
-		this->gameData->resource.LoadFont("Flappy Font", FLAP_FONT);
+		this->gameData->resource.VisualLoad("Bat 1", BAT_1);
+		this->gameData->resource.VisualLoad("Bat 2", BAT_2);
+		this->gameData->resource.VisualLoad("Bat 3", BAT_3);
+		this->gameData->resource.VisualLoad("Bat 4", BAT_4);
+		this->gameData->resource.VisualLoad("Pipe Point", PIPE_SCORE);
+		this->gameData->resource.TextTypeLoad("Flappy Bat Text", FLAP_FONT);
 
-		pipe = new Pipe(gameData);
-		land = new Land(gameData);
+		PIPE = new Pipe(gameData);
+		land = new Ground(gameData);
 		bat = new Bat(gameData);
 		hud = new UserInterface(gameData);
 
-		landscape.setTexture(this->gameData->resource.ObtainVisuals("Game Background"));
+		landscape.setTexture(this->gameData->resource.ObtainVisuals("LandScape"));
 
 		point = 0;
 		hud->RefreshScore(point);
 
-		_gameState = GameStates::eReady;
+		_gameBody = GameHandlers::eReady;
 	}
 
-	void GameState::input_handle()
+	void GameBody::input_handle()
 	{
 		sf::Event event;
 
@@ -71,9 +57,9 @@ namespace FlappyBat
 
 			if (this->gameData->input.IsSpriteClicked(this->landscape, sf::Mouse::Left, this->gameData->window))
 			{
-				if (GameStates::eGameOver != _gameState)
+				if (GameHandlers::eGameOver != _gameBody)
 				{
-					_gameState = GameStates::ePlaying;
+					_gameBody = GameHandlers::ePlaying;
 					bat->BatJump();
 
 					wing_sound.play();
@@ -82,39 +68,39 @@ namespace FlappyBat
 		}
 	}
 
-	void GameState::Refresh(float dt)
+	void GameBody::Refresh(float dt)
 	{
-		if (GameStates::eGameOver != _gameState)
+		if (GameHandlers::eGameOver != _gameBody)
 		{
 			bat->Animation(dt);
-			land->MoveLand(dt);
+			land->MoveGround(dt);
 		}
 
-		if (GameStates::ePlaying == _gameState)
+		if (GameHandlers::ePlaying == _gameBody)
 		{
-			pipe->pipe_movement(dt);
+			PIPE->pipe_movement(dt);
 
 			if (clock.getElapsedTime().asSeconds() > PIPE_AMOUNT)
 			{
-				pipe->random_pipe_spawn();
+				PIPE->random_pipe_spawn();
 
-				pipe->imaginary_pipe();
-				pipe->bot_pipe();
-				pipe->top_pipe();
-				pipe->pipe_scoring();
+				PIPE->imaginary_pipe();
+				PIPE->bot_pipe();
+				PIPE->top_pipe();
+				PIPE->pipe_scoring();
 
 				clock.restart();
 			}
 
 			bat->Refresh(dt);
 
-			std::vector<sf::Sprite> landSprites = land->GetSprites();
+			std::vector<sf::Sprite> GroundImg = land->LoadSprites();
 
-			for (int i = 0; i < landSprites.size(); i++)
+			for (int i = 0; i < GroundImg.size(); i++)
 			{
-				if (collision.check_collision(bat->GetSprite(), 0.7f, landSprites.at(i), 1.0f))
+				if (collision.check_collision(bat->GetSprite(), 0.7f, GroundImg.at(i), 1.0f))
 				{
-					_gameState = GameStates::eGameOver;
+					_gameBody = GameHandlers::eGameOver;
 
 					clock.restart();
 
@@ -122,13 +108,13 @@ namespace FlappyBat
 				}
 			}
 
-			std::vector<sf::Sprite> pipeSprites = pipe->GetSprites();
+			std::vector<sf::Sprite> pipeImg = PIPE->LoadSprites();
 
-			for (int i = 0; i < pipeSprites.size(); i++)
+			for (int i = 0; i < pipeImg.size(); i++)
 			{
-				if (collision.check_collision(bat->GetSprite(), 0.625f, pipeSprites.at(i), 1.0f))
+				if (collision.check_collision(bat->GetSprite(), 0.625f, pipeImg.at(i), 1.0f))
 				{
-					_gameState = GameStates::eGameOver;
+					_gameBody = GameHandlers::eGameOver;
 
 					clock.restart();
 
@@ -136,19 +122,19 @@ namespace FlappyBat
 				}
 			}
 
-			if (GameStates::ePlaying == _gameState)
+			if (GameHandlers::ePlaying == _gameBody)
 			{
-				std::vector<sf::Sprite> &scoringSprites = pipe->GetScoringSprites();
+				std::vector<sf::Sprite> &pointImg = PIPE->InitPointImg();
 
-				for (int i = 0; i < scoringSprites.size(); i++)
+				for (int i = 0; i < pointImg.size(); i++)
 				{
-					if (collision.check_collision(bat->GetSprite(), 0.625f, scoringSprites.at(i), 1.0f))
+					if (collision.check_collision(bat->GetSprite(), 0.625f, pointImg.at(i), 1.0f))
 					{
 						point++;
 
 						hud->RefreshScore(point);
 
-						scoringSprites.erase(scoringSprites.begin() + i);
+						pointImg.erase(pointImg.begin() + i);
 
 						point_sound.play();
 					}
@@ -156,20 +142,20 @@ namespace FlappyBat
 			}
 		}
 
-		if (GameStates::eGameOver == _gameState)
+		if (GameHandlers::eGameOver == _gameBody)
 		{
-			this->gameData->unit.add_state(StateRef(new GameOverState(gameData, point)), true);
+			this->gameData->unit.add_state(StateRef(new GameEnd(gameData, point)), true);
 		}
 	}
 
-	void GameState::Render(float dt)
+	void GameBody::Render(float dt)
 	{
 		this->gameData->window.clear(sf::Color::Red);
 
 		this->gameData->window.draw(this->landscape);
 
-		pipe->RenderPipes();
-		land->RenderLand();
+		PIPE->RenderPipes();
+		land->RenderGround();
 		bat->Render();
 
 		hud->Render();

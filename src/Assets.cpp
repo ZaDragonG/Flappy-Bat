@@ -19,7 +19,7 @@ namespace FlappyBat
 		return this->textures.at(name);
 	}
 
-	void Assets::LoadFont(std::string name, std::string fileName)
+	void Assets::TextTypeLoad(std::string name, std::string fileName)
 	{
 		sf::Font type;
 

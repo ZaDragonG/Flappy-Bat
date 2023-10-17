@@ -7,12 +7,12 @@
 
 namespace FlappyBat
 {
-    class GameOverState : public State
+    class GameEnd : public State
     {
     public:
-        GameOverState(game_data_ref data, int score);
+        GameEnd(game_data_ref data, int score);
 
-        void Init();
+        void SetGameElements();
 
         void input_handle();
         void Refresh(float dt);
@@ -23,9 +23,9 @@ namespace FlappyBat
 
         sf::Sprite landscape;
 
-        sf::Sprite _gameOverTitle;
-        sf::Sprite _gameOverContainer;
-        sf::Sprite _retryButton;
+        sf::Sprite _endGameText;
+        sf::Sprite _endGameHold;
+        sf::Sprite _playAgainInput;
         sf::Sprite _medal;
 
         sf::Text pointText;

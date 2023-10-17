@@ -21,12 +21,12 @@ namespace FlappyBat
 		void RenderPipes();
 		void random_pipe_spawn();
 
-		const std::vector<sf::Sprite> &GetSprites() const;
-		std::vector<sf::Sprite> &GetScoringSprites();
+		const std::vector<sf::Sprite> &LoadSprites() const;
+		std::vector<sf::Sprite> &InitPointImg();
 
 	private:
 		game_data_ref gameData;
-		std::vector<sf::Sprite> pipeSprites;
+		std::vector<sf::Sprite> pipeImg;
 		std::vector<sf::Sprite> scoringPipes;
 
 		int ground_vert;

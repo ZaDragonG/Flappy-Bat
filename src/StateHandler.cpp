@@ -44,7 +44,7 @@ namespace FlappyBat
 			}
 
 			this->_states.push(std::move(this->newState));
-			this->_states.top()->Init();
+			this->_states.top()->SetGameElements();
 			this->addition = false;
 		}
 	}

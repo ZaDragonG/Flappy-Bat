@@ -9,11 +9,11 @@
 
 namespace FlappyBat
 {
-	MainMenuState::MainMenuState(game_data_ref data) : gameData(data)
+	MenuBody::MenuBody(game_data_ref data) : gameData(data)
 	{
 	}
 
-	void MainMenuState::Init()
+	void MenuBody::SetGameElements()
 	{
 		this->gameData->resource.VisualLoad("Main Menu Background", MENU_BACKGROUND);
 		this->gameData->resource.VisualLoad("Game Title", TITLE);
@@ -27,7 +27,7 @@ namespace FlappyBat
 		play_switch.setPosition((WIDTH / 2) - (play_switch.getGlobalBounds().width / 2), (HEIGHT / 2) - (play_switch.getGlobalBounds().height / 2));
 	}
 
-	void MainMenuState::input_handle()
+	void MenuBody::input_handle()
 	{
 		sf::Event event;
 
@@ -41,16 +41,16 @@ namespace FlappyBat
 			if (this->gameData->input.IsSpriteClicked(this->play_switch, sf::Mouse::Left, this->gameData->window))
 			{
 				// button To Main Menu
-				this->gameData->unit.add_state(StateRef(new GameState(gameData)), true);
+				this->gameData->unit.add_state(StateRef(new GameBody(gameData)), true);
 			}
 		}
 	}
 
-	void MainMenuState::Refresh(float dt)
+	void MenuBody::Refresh(float dt)
 	{
 	}
 
-	void MainMenuState::Render(float dt)
+	void MenuBody::Render(float dt)
 	{
 		this->gameData->window.clear(sf::Color::Red);
 

@@ -8,11 +8,11 @@
 
 namespace FlappyBat
 {
-    GameOverState::GameOverState(game_data_ref data, int score) : gameData(data), point(score)
+    GameEnd::GameEnd(game_data_ref data, int score) : gameData(data), point(score)
     {
     }
 
-    void GameOverState::Init()
+    void GameEnd::SetGameElements()
     {
         std::ifstream open_file;
         open_file.open("assets/Highscore.txt");
@@ -50,22 +50,22 @@ namespace FlappyBat
         this->gameData->resource.VisualLoad("Platinum Medal", PLAT_MED);
 
         landscape.setTexture(this->gameData->resource.ObtainVisuals("Game Over Background"));
-        _gameOverTitle.setTexture(this->gameData->resource.ObtainVisuals("Game Over Title"));
-        _gameOverContainer.setTexture(this->gameData->resource.ObtainVisuals("Game Over Body"));
-        _retryButton.setTexture(this->gameData->resource.ObtainVisuals("Play Button"));
+        _endGameText.setTexture(this->gameData->resource.ObtainVisuals("Game Over Title"));
+        _endGameHold.setTexture(this->gameData->resource.ObtainVisuals("Game Over Body"));
+        _playAgainInput.setTexture(this->gameData->resource.ObtainVisuals("Play Button"));
 
-        _gameOverContainer.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_gameOverContainer.getGlobalBounds().width / 2), (gameData->window.getSize().y / 2) - (_gameOverContainer.getGlobalBounds().height / 2)));
-        _gameOverTitle.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_gameOverTitle.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y - (_gameOverTitle.getGlobalBounds().height * 1.2)));
-        _retryButton.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_retryButton.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y + _gameOverContainer.getGlobalBounds().height + (_retryButton.getGlobalBounds().height * 0.2)));
+        _endGameHold.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_endGameHold.getGlobalBounds().width / 2), (gameData->window.getSize().y / 2) - (_endGameHold.getGlobalBounds().height / 2)));
+        _endGameText.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_endGameText.getGlobalBounds().width / 2), _endGameHold.getPosition().y - (_endGameText.getGlobalBounds().height * 1.2)));
+        _playAgainInput.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_playAgainInput.getGlobalBounds().width / 2), _endGameHold.getPosition().y + _endGameHold.getGlobalBounds().height + (_playAgainInput.getGlobalBounds().height * 0.2)));
 
-        pointText.setFont(this->gameData->resource.ObtainText("Flappy Font"));
+        pointText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text"));
         pointText.setString(std::to_string(point));
         pointText.setCharacterSize(56);
         pointText.setFillColor(sf::Color::White);
         pointText.setOrigin(sf::Vector2f(pointText.getGlobalBounds().width / 2, pointText.getGlobalBounds().height / 2));
         pointText.setPosition(sf::Vector2f(gameData->window.getSize().x / 10 * 7.25, gameData->window.getSize().y / 2.15));
 
-        _highScoreText.setFont(this->gameData->resource.ObtainText("Flappy Font"));
+        _highScoreText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text"));
         _highScoreText.setString(std::to_string(_highScore));
         _highScoreText.setCharacterSize(56);
         _highScoreText.setFillColor(sf::Color::White);
@@ -92,7 +92,7 @@ namespace FlappyBat
         _medal.setPosition(175, 465);
     }
 
-    void GameOverState::input_handle()
+    void GameEnd::input_handle()
     {
         sf::Event event;
 
@@ -103,26 +103,26 @@ namespace FlappyBat
                 this->gameData->window.close();
             }
 
-            if (this->gameData->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, this->gameData->window))
+            if (this->gameData->input.IsSpriteClicked(this->_playAgainInput, sf::Mouse::Left, this->gameData->window))
             {
-                this->gameData->unit.add_state(StateRef(new GameState(gameData)), true);
+                this->gameData->unit.add_state(StateRef(new GameBody(gameData)), true);
             }
         }
     }
 
-    void GameOverState::Refresh(float dt)
+    void GameEnd::Refresh(float dt)
     {
     }
 
-    void GameOverState::Render(float dt)
+    void GameEnd::Render(float dt)
     {
         this->gameData->window.clear(sf::Color::Red);
 
         this->gameData->window.draw(this->landscape);
 
-        gameData->window.draw(_gameOverTitle);
-        gameData->window.draw(_gameOverContainer);
-        gameData->window.draw(_retryButton);
+        gameData->window.draw(_endGameText);
+        gameData->window.draw(_endGameHold);
+        gameData->window.draw(_playAgainInput);
         gameData->window.draw(pointText);
         gameData->window.draw(_highScoreText);
 

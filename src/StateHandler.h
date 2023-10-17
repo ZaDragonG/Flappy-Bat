@@ -17,7 +17,7 @@ namespace FlappyBat
 
 		void add_state(StateRef new_state, bool is_replacing = true);
 		void remove_state();
-		// Run at start of each loop in Game.cpp
+
 		void state_change();
 
 		StateRef &active_state();

@@ -13,35 +13,35 @@ namespace FlappyBat
 
 	void Pipe::bot_pipe()
 	{
-		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Up"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Upper Pipe"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, this->gameData->window.getSize().y - sprite.getLocalBounds().height - pipe_spawn_yaxis);
 
-		pipeSprites.push_back(sprite);
+		pipeImg.push_back(sprite);
 	}
 
 	void Pipe::top_pipe()
 	{
-		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Down"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Lower Pipe"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, -pipe_spawn_yaxis);
 
-		pipeSprites.push_back(sprite);
+		pipeImg.push_back(sprite);
 	}
 
 	void Pipe::imaginary_pipe()
 	{
-		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Down"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Lower Pipe"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, -pipe_spawn_yaxis);
 		sprite.setColor(sf::Color(0, 0, 0, 0));
 
-		pipeSprites.push_back(sprite);
+		pipeImg.push_back(sprite);
 	}
 
 	void Pipe::pipe_scoring()
 	{
-		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Scoring Pipe"));
+		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Pipe Point"));
 
 		sprite.setPosition(this->gameData->window.getSize().x, 0);
 
@@ -50,18 +50,18 @@ namespace FlappyBat
 
 	void Pipe::pipe_movement(float dt)
 	{
-		for (int i = 0; i < pipeSprites.size(); i++)
+		for (int i = 0; i < pipeImg.size(); i++)
 		{
-			if (pipeSprites.at(i).getPosition().x < 0 - pipeSprites.at(i).getLocalBounds().width)
+			if (pipeImg.at(i).getPosition().x < 0 - pipeImg.at(i).getLocalBounds().width)
 			{
-				pipeSprites.erase(pipeSprites.begin() + i);
+				pipeImg.erase(pipeImg.begin() + i);
 			}
 			else
 			{
-				sf::Vector2f position = pipeSprites.at(i).getPosition();
+				sf::Vector2f position = pipeImg.at(i).getPosition();
 				float move = PIPE_SPEED * dt;
 
-				pipeSprites.at(i).move(-move, 0);
+				pipeImg.at(i).move(-move, 0);
 			}
 		}
 
@@ -83,9 +83,9 @@ namespace FlappyBat
 
 	void Pipe::RenderPipes()
 	{
-		for (unsigned short int i = 0; i < pipeSprites.size(); i++)
+		for (unsigned short int i = 0; i < pipeImg.size(); i++)
 		{
-			this->gameData->window.draw(pipeSprites.at(i));
+			this->gameData->window.draw(pipeImg.at(i));
 		}
 	}
 
@@ -94,12 +94,12 @@ namespace FlappyBat
 		pipe_spawn_yaxis = rand() % (ground_vert + 1);
 	}
 
-	const std::vector<sf::Sprite> &Pipe::GetSprites() const
+	const std::vector<sf::Sprite> &Pipe::LoadSprites() const
 	{
-		return pipeSprites;
+		return pipeImg;
 	}
 
-	std::vector<sf::Sprite> &Pipe::GetScoringSprites()
+	std::vector<sf::Sprite> &Pipe::InitPointImg()
 	{
 		return scoringPipes;
 	}

@@ -3,7 +3,7 @@
 
 namespace FlappyBat
 {
-	Land::Land(game_data_ref data) : gameData(data)
+	Ground::Ground(game_data_ref data) : gameData(data)
 	{
 		sf::Sprite sprite(this->gameData->resource.ObtainVisuals("Land"));
 		sf::Sprite sprite_2(this->gameData->resource.ObtainVisuals("Land"));
@@ -15,7 +15,7 @@ namespace FlappyBat
 		ground_sprite.push_back(sprite_2);
 	}
 
-	void Land::MoveLand(float dt)
+	void Ground::MoveGround(float dt)
 	{
 		for (unsigned short int i = 0; i < ground_sprite.size(); i++)
 		{
@@ -33,7 +33,7 @@ namespace FlappyBat
 		}
 	}
 
-	void Land::RenderLand()
+	void Ground::RenderGround()
 	{
 		for (unsigned short int i = 0; i < ground_sprite.size(); i++)
 		{
@@ -41,7 +41,7 @@ namespace FlappyBat
 		}
 	}
 
-	const std::vector<sf::Sprite> &Land::GetSprites() const
+	const std::vector<sf::Sprite> &Ground::LoadSprites() const
 	{
 		return ground_sprite;
 	}

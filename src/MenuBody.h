@@ -7,12 +7,12 @@
 
 namespace FlappyBat
 {
-	class MainMenuState : public State
+	class MenuBody : public State
 	{
 	public:
-		MainMenuState(game_data_ref data);
+		MenuBody(game_data_ref data);
 
-		void Init();
+		void SetGameElements();
 
 		void input_handle();
 		void Refresh(float dt);
