@@ -28,8 +28,7 @@ namespace FlappyBat
 		this->gameData->resource.VisualLoad("Bat 3", BAT_3);
 		this->gameData->resource.VisualLoad("Bat 4", BAT_4);
 		this->gameData->resource.VisualLoad("Pipe Point", PIPE_SCORE);
-		this->gameData->resource.TextTypeLoad("Flappy Bat Text HUD", FLAP_FONT_HUD);
-		this->gameData->resource.TextTypeLoad("Flappy Bat Text END", FLAP_FONT_END);
+		this->gameData->resource.TextTypeLoad("Flappy Bat Text", FLAP_FONT);
 
 		PIPE = new Pipe(gameData);
 		land = new Ground(gameData);
