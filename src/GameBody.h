@@ -6,6 +6,8 @@
 #include "UserInterface.h"
 #include "Ground.h"
 #include "Pipe.h"
+#include "GameBody.h"
+#include "Obstacle.h"
 #include "Virtual.h"
 
 #include <SFML/Graphics.hpp>

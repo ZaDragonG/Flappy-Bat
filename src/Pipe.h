@@ -6,6 +6,8 @@
 
 #include <vector>
 
+#include "Obstacle.h"
+
 namespace FlappyBat
 {
 	class Pipe
