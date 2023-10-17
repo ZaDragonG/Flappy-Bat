@@ -33,7 +33,7 @@ namespace FlappyBat
 		gameData->window.draw(bat_sprite);
 	}
 
-	void Bat::Animation(float dt)
+	void Bat::Animation(float)
 	{
 		if (_time.getElapsedTime().asSeconds() > BAT_DURATION / anime_frame.size())
 		{

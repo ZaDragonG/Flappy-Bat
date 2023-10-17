@@ -1,4 +1,3 @@
-#pragma once
 
 #include "DEFINE.h"
 #include "GameBody.h"
@@ -46,11 +45,11 @@ namespace FlappyBat
 		}
 	}
 
-	void MenuBody::Refresh(float dt)
+	void MenuBody::Refresh(float)
 	{
 	}
 
-	void MenuBody::Render(float dt)
+	void MenuBody::Render(float)
 	{
 		this->gameData->window.clear(sf::Color::Red);
 

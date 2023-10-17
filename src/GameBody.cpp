@@ -1,4 +1,3 @@
-#pragma once
 
 #include "DEFINE.h"
 #include "GameBody.h"
@@ -96,7 +95,7 @@ namespace FlappyBat
 
 			std::vector<sf::Sprite> GroundImg = land->LoadSprites();
 
-			for (int i = 0; i < GroundImg.size(); i++)
+			for (long unsigned int i = 0; i < GroundImg.size(); i++)
 			{
 				if (collision.check_collision(bat->GetSprite(), 0.7f, GroundImg.at(i), 1.0f))
 				{
@@ -110,7 +109,7 @@ namespace FlappyBat
 
 			std::vector<sf::Sprite> pipeImg = PIPE->LoadSprites();
 
-			for (int i = 0; i < pipeImg.size(); i++)
+			for (long unsigned int i = 0; i < pipeImg.size(); i++)
 			{
 				if (collision.check_collision(bat->GetSprite(), 0.625f, pipeImg.at(i), 1.0f))
 				{
@@ -126,7 +125,7 @@ namespace FlappyBat
 			{
 				std::vector<sf::Sprite> &pointImg = PIPE->InitPointImg();
 
-				for (int i = 0; i < pointImg.size(); i++)
+				for (long int i = 0; i < pointImg.size(); i++)
 				{
 					if (collision.check_collision(bat->GetSprite(), 0.625f, pointImg.at(i), 1.0f))
 					{
@@ -148,7 +147,7 @@ namespace FlappyBat
 		}
 	}
 
-	void GameBody::Render(float dt)
+	void GameBody::Render(float)
 	{
 		this->gameData->window.clear(sf::Color::Red);
 

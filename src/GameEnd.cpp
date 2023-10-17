@@ -110,11 +110,11 @@ namespace FlappyBat
         }
     }
 
-    void GameEnd::Refresh(float dt)
+    void GameEnd::Refresh(float)
     {
     }
 
-    void GameEnd::Render(float dt)
+    void GameEnd::Render(float)
     {
         this->gameData->window.clear(sf::Color::Red);
 

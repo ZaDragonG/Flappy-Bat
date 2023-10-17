@@ -13,7 +13,7 @@
 
 namespace FlappyBat
 {
-	class GameBody : public State
+	class GameBody : public Virtual
 	{
 	public:
 		GameBody(game_data_ref data);

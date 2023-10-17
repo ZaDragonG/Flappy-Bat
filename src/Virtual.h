@@ -2,7 +2,7 @@
 
 namespace FlappyBat
 {
-	class State
+	class Virtual
 	{
 	public:
 		virtual void SetGameElements() = 0;

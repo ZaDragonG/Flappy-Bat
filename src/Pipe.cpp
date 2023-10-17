@@ -50,7 +50,7 @@ namespace FlappyBat
 
 	void Pipe::pipe_movement(float dt)
 	{
-		for (int i = 0; i < pipeImg.size(); i++)
+		for (long unsigned int i = 0; i < pipeImg.size(); i++)
 		{
 			if (pipeImg.at(i).getPosition().x < 0 - pipeImg.at(i).getLocalBounds().width)
 			{
@@ -65,7 +65,7 @@ namespace FlappyBat
 			}
 		}
 
-		for (int i = 0; i < scoringPipes.size(); i++)
+		for (long unsigned int i = 0; i < scoringPipes.size(); i++)
 		{
 			if (scoringPipes.at(i).getPosition().x < 0 - scoringPipes.at(i).getLocalBounds().width)
 			{

@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include "DEFINE.h"
 #include "MenuBody.h"
@@ -33,7 +33,7 @@ namespace FlappyBat
 		}
 	}
 
-	void BackgroundImg::Refresh(float dt)
+	void BackgroundImg::Refresh(float)
 	{
 		if (this->_time.getElapsedTime().asSeconds() > SPLASH_TIME)
 		{
@@ -42,7 +42,7 @@ namespace FlappyBat
 		}
 	}
 
-	void BackgroundImg::Render(float dt)
+	void BackgroundImg::Render(float)
 	{
 		this->gameData->window.clear(sf::Color::Red);
 

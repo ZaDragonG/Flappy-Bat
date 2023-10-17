@@ -7,7 +7,7 @@
 
 namespace FlappyBat
 {
-	class BackgroundImg : public State
+	class BackgroundImg : public Virtual
 	{
 	public:
 		BackgroundImg(game_data_ref data);

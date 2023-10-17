@@ -7,7 +7,7 @@
 
 namespace FlappyBat
 {
-	typedef std::unique_ptr<State> StateRef;
+	typedef std::unique_ptr<Virtual> StateRef;
 
 	class StateHandler
 	{

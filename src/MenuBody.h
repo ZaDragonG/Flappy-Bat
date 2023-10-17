@@ -7,7 +7,7 @@
 
 namespace FlappyBat
 {
-	class MenuBody : public State
+	class MenuBody : public Virtual
 	{
 	public:
 		MenuBody(game_data_ref data);

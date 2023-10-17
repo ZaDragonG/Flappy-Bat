@@ -7,7 +7,7 @@
 
 namespace FlappyBat
 {
-    class GameEnd : public State
+    class GameEnd : public Virtual
     {
     public:
         GameEnd(game_data_ref data, int score);
