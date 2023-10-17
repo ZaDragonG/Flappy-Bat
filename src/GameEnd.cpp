@@ -58,14 +58,14 @@ namespace FlappyBat
         _endGameText.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_endGameText.getGlobalBounds().width / 2), _endGameHold.getPosition().y - (_endGameText.getGlobalBounds().height * 1.2)));
         _playAgainInput.setPosition(sf::Vector2f((gameData->window.getSize().x / 2) - (_playAgainInput.getGlobalBounds().width / 2), _endGameHold.getPosition().y + _endGameHold.getGlobalBounds().height + (_playAgainInput.getGlobalBounds().height * 0.2)));
 
-        pointText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text"));
+        pointText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text End"));
         pointText.setString(std::to_string(point));
         pointText.setCharacterSize(56);
         pointText.setFillColor(sf::Color::White);
         pointText.setOrigin(sf::Vector2f(pointText.getGlobalBounds().width / 2, pointText.getGlobalBounds().height / 2));
         pointText.setPosition(sf::Vector2f(gameData->window.getSize().x / 10 * 7.25, gameData->window.getSize().y / 2.15));
 
-        _highScoreText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text"));
+        _highScoreText.setFont(this->gameData->resource.ObtainText("Flappy Bat Text End"));
         _highScoreText.setString(std::to_string(_highScore));
         _highScoreText.setCharacterSize(56);
         _highScoreText.setFillColor(sf::Color::White);

@@ -25,7 +25,8 @@
 
 #define PIPE_SCORE "assets/img/InvisibleScoringPipe.png"
 
-#define FLAP_FONT "assets/fonts/FlappyFont.ttf"
+#define FLAP_FONT_END "assets/fonts/comicz.ttf"
+#define FLAP_FONT_HUD "assets/fonts/AmaticSC-Regular.ttf"
 
 #define FATALITY_TITLE "assets/img/Game-Over-Title.png"
 #define FATALITY_BODY "assets/img/Game-Over-Body.png"
