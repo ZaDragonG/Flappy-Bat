@@ -6,7 +6,7 @@ Flappy Bat is a fun and challenging arcade game inspired by the classic Flappy B
 
 Features
 Batman-themed visuals 
-Smooth & responsive controls 🕹
+Smooth & responsive controls
 Endless gameplay – see how far you can go.
 Classic flappy mechanics with a Gotham setting
 
